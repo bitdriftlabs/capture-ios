@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.module_name = 'Capture'
   s.social_media_url = 'https://twitter.com/bitdriftio'
   s.license = { 
-    :type => "Copyright",
+    :type => "BITDRIFT SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT",
     :text => <<-LICENSE
     BITDRIFT SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT
     
