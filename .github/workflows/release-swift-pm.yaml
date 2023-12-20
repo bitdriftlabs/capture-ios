@@ -12,7 +12,7 @@ on:
         description: 'The SDK version to release, ex: 0.9.102'
         required: true
         type: string
-jobs: 
+jobs:
   verify-version:
     name: Say Hello
     runs-on: ubuntu-latest
