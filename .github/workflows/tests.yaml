@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
-      - name: Setup CI
+      - name: Set up CI
         run: | # https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#xcode
           sudo xcode-select --switch /Applications/Xcode_15.0.app
       - name: Run Tests
