@@ -16,5 +16,9 @@ let package = Package(
            url: "https://dl.bitdrift.io/sdk/ios/capture-0.9.100/Capture.zip",
            checksum: "93551414532badc8b609ed5632c59b9b0acf742ebb332deba7904a54ebf62113"
        ),
+        .testTarget(
+            name: "CaptureUnit",
+            dependencies: ["Capture"]
+        ),
     ]
 )
