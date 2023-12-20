@@ -19,8 +19,9 @@ jobs:
           sudo xcode-select --switch /Applications/Xcode_15.0.app
       - name: Run Tests
         run:  | 
-          xcodebuild clean test \
-           -scheme Capture \
+          xcodebuild \
+          -scheme Capture \
           -sdk iphonesimulator17.0 \
           -destination 'platform=iOS Simulator,OS=17.0,name=iPhone 15' \
+          clean test \
           CODE_SIGNING_ALLOWED=NO
