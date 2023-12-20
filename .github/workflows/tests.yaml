@@ -18,4 +18,9 @@ jobs:
         run: | # https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#xcode
           sudo xcode-select --switch /Applications/Xcode_15.0.app
       - name: Run Tests
-        run: xcodebuild clean test -scheme Capture -sdk iphonesimulator17.0 -destination "platform=iOS Simulator,OS=17.0,name=iPhone 15" CODE_SIGNING_ALLOWED=NO
+        run:  | 
+          xcodebuild clean test \
+           -scheme Capture \
+          -sdk iphonesimulator17.0 \
+          -destination 'platform=iOS Simulator,OS=17.0,name=iPhone 15' \
+          CODE_SIGNING_ALLOWED=NO
