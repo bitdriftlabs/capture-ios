@@ -2,14 +2,43 @@ name: Swift Package Manager Release
 on:
   workflow_call:
     inputs:
-      tag:
-        description: 'The SDK version to release, ex: 0.9.97'
+      version:
+        description: 'The SDK version to release, ex: 0.9.102'
         required: true
         type: string
 jobs: 
-  verify-version:
+  swiftpm-release:
     name: Say Hello
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hello
-        run: echo "Hello"
+      - uses: actions/checkout@v4
+      - name: Generate Package.swift
+        run: | 
+          sed -e "s/VERSION/$VERSION/g" tools/Package_template.swift > Package.swift
+          cat Package.swift
+        env:
+          VERSION: ${{ inputs.version }}
+      - name: Check for changes
+        id: state
+        run: |
+          if ! git diff-index --quiet HEAD --; then
+            echo "Detected changes..."
+            echo "dirty=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Create PR
+        id: create-pr
+        if: steps.state.outputs.dirty == 'true'
+        # v5.0.2
+        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Update proto
+          commit-message: |
+              Release new version: ${{ inputs.version }}
+          committer: GitHub Action <noreply@github.com>
+          base: main
+          delete-branch: true
+          branch: update-proto-submodule
+          branch-suffix: timestamp
+        env:
+          VERSION: ${{ inputs.version }}
