@@ -27,14 +27,14 @@ jobs:
           cat Package.swift
         env:
           VERSION: ${{ inputs.version }}
-      - name: Check for changes
+      - name: Check for Changes
         id: state
         run: |
           if ! git diff-index --quiet HEAD --; then
             echo "Detected changes..."
             echo "dirty=true" >> $GITHUB_OUTPUT
           fi
-      - name: Create PR
+      - name: Create Pull Request
         id: create-pr
         if: steps.state.outputs.dirty == 'true'
         # v5.0.2
