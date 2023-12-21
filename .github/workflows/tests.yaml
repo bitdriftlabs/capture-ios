@@ -21,7 +21,7 @@ jobs:
         run:  | 
           xcodebuild \
           -scheme Capture \
-          -sdk iphonesimulator17.0 \
-          -destination 'platform=iOS Simulator,OS=17.2,name=iPhone 15' \
+          -sdk iphonesimulator17.2 \
+          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 15' \
           clean test \
           CODE_SIGNING_ALLOWED=NO
