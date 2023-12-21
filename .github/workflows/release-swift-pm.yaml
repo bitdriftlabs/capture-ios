@@ -44,13 +44,11 @@ jobs:
         uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: Update proto
+          title: Generate Package.swift for ${{ inputs.version }}
           commit-message: |
-              Release new version: ${{ inputs.version }}
+              Generate Package.swift for ${{ inputs.version }} version of the Capture SDK.
           committer: GitHub Action <noreply@github.com>
           base: main
           delete-branch: true
-          branch: update-proto-submodule
+          branch: generate-package-swift-${{ inputs.version }}
           branch-suffix: timestamp
-        env:
-          VERSION: ${{ inputs.version }}
