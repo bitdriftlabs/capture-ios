@@ -10,6 +10,7 @@ concurrency:
     cancel-in-progress: true
 jobs:
   tests:
+    name: Run Tests
     runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
