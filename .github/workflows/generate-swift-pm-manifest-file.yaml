@@ -1,4 +1,4 @@
-name: Swift Package Manager Release
+name: Generate Swift PM Package.swift Manifest file
 on:
   workflow_call:
     inputs:
