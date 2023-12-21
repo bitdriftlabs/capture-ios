@@ -50,5 +50,4 @@ jobs:
           committer: GitHub Action <noreply@github.com>
           base: main
           delete-branch: true
-          branch: generate-package-swift
-          branch-suffix: timestamp
+          branch: generate-package-swift-${{ inputs.version }}
