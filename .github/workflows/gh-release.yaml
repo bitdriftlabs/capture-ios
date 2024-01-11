@@ -17,7 +17,7 @@ jobs:
       - name: Check for Changes
         id: state
         run: |
-          if git diff --exit-code HEAD~1 HEAD Package.swift; then
+          if ! git diff --exit-code HEAD~1 HEAD Package.swift; then
             echo "Detected changes..."
             echo "dirty=true" >> $GITHUB_OUTPUT
           fi
