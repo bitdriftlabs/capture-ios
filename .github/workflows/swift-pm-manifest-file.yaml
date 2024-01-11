@@ -46,7 +46,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Generate Package.swift for ${{ inputs.version }}
           commit-message: |
-              Generate Package.swift for ${{ inputs.version }} version of the Capture SDK.
+              Generate Package.swift for ${{ inputs.version }}
           committer: GitHub Action <noreply@github.com>
           base: main
           delete-branch: true
