@@ -40,7 +40,7 @@ jobs:
       - name: Create Pull Request
         id: create-pr
         # Check if the event is not triggered by a fork
-        if: github.event.pull_request.head.repo.full_name == github.repository && steps.state.outputs.dirty == 'true' 
+        if: ${{ (github.event.pull_request.head.repo.full_name == github.repository) && (steps.state.outputs.dirty == 'true') }}
         # v5.0.2
         uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38
         with:
