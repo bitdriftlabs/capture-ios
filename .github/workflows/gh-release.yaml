@@ -28,6 +28,6 @@ jobs:
             version=$(grep -o '[0-9]\.[0-9]\+\.[0-9]\+' Package.swift) 
             echo "Found version in Package.swift file: '$version'"
 
-            gh release create "$version" --target "$GITHUB_REF_NAME"
+            gh release create "$version" --target "$GITHUB_REF_NAME" --title "$version"
         env:
           GH_TOKEN: ${{ github.token }}
