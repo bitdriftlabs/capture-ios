@@ -48,9 +48,7 @@ extension LogLevel {
             self = .info
         case .debug:
             self = .debug
-        case .verbose:
-            self = .trace
-        case .all:
+        case .verbose, .all:
             self = .trace
         default:
             self = .trace
