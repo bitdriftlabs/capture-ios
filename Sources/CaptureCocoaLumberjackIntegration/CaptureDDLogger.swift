@@ -8,7 +8,7 @@ import os
 final class CaptureDDLogger: NSObject, DDLogger {
     private let osLogger = OSLogger()
 
-    var logFormatter: DDLogFormatter? = nil
+    var logFormatter: DDLogFormatter?
 
     func log(message logMessage: DDLogMessage) {
         guard let level = LogLevel(logMessage.level) else {
