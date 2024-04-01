@@ -4,7 +4,18 @@ https://docs.bitdrift.io/ | [Slack](https://communityinviter.com/apps/bitdriftpu
 
 ## Integration
 
-See the [official documentation]( https://docs.bitdrift.io/sdk/quickstart#ios) to learn more about how to integrate the library in your project.
+See the [official documentation](https://docs.bitdrift.io/sdk/quickstart#ios) to learn more about how to integrate the library in your project.
+
+The following code demonstrates an example setup of Capture SDK in your app:
+
+```swift
+import Capture
+
+Logger.configure(
+  withAPIKey: "<your-api-key>",
+  sessionStrategy: .activityBased()
+)
+```
 
 ### CocoaPods
 
