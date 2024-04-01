@@ -1,7 +1,7 @@
 import Capture
 import XCTest
 
-final class CaptureIntegrationTests: XCTestCase {
+final class IntegrationTests: XCTestCase {
     func testCapture() {
         Capture.Logger.configure(withAPIKey: "foo", sessionStrategy: .fixed())
         XCTAssertNotNil(Capture.Logger.sessionID)

@@ -1,0 +1,24 @@
+name: lint
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+# Cancel in-progress CI jobs when a new commit is pushed to a PR.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  format:
+    runs-on: ubuntu-22.04
+    steps:
+      # Checkout repo to Github Actions runner
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up CI
+        run: ./ci/linux_format_setup.sh
+      - name: Run 'make format'
+        run: PATH=./bin:$PATH make format
+      - name: Check & print diff
+        run: git --no-pager diff && git diff --quiet
+
