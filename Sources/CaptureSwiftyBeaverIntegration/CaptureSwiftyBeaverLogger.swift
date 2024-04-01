@@ -18,7 +18,10 @@ final class CaptureSwiftyBeaverLogger: BaseDestination {
             // swiftlint:disable line_length
             // Following formatting logic from
             // https://github.com/SwiftyBeaver/SwiftyBeaver/blob/d60a21a3878c487db07ec1e2df697fa24839918b/Sources/BaseDestination.swift#L239-L240
-            return ["context": String(describing: context).trimmingCharacters(in: .whitespacesAndNewlines)]
+            return [
+                "context": String(describing: context).trimmingCharacters(in: .whitespacesAndNewlines),
+                "source": "SwiftBeaver",
+            ]
         }
 
         Capture.Logger.log(
