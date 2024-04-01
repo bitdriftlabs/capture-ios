@@ -20,3 +20,6 @@ end
 .package(url: "https://github.com/bitdriftlabs/capture-ios.git", from: "0.9.112"),
 ```
 
+## Local Development
+
+Run `make format` to run various formatting tools and linter checks.
