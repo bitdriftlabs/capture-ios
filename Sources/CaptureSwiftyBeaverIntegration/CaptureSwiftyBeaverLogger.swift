@@ -14,9 +14,17 @@ final class CaptureSwiftyBeaverLogger: BaseDestination {
         line: Int,
         context: Any? = nil
     ) -> String? {
+        let fields = context.flatMap { context in
+            // swiftlint:disable line_length
+            // Following formatting logic from
+            // https://github.com/SwiftyBeaver/SwiftyBeaver/blob/d60a21a3878c487db07ec1e2df697fa24839918b/Sources/BaseDestination.swift#L239-L240
+            return ["context": String(describing: context).trimmingCharacters(in: .whitespacesAndNewlines)]
+        }
+
         Capture.Logger.log(
             level: LogLevel(level),
-            message: msg
+            message: msg,
+            fields: fields
         )
 
         return super.send(
