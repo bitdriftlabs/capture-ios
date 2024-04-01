@@ -46,9 +46,9 @@ final class CaptureSwiftyBeaverLogger: BaseDestination {
 }
 
 extension Capture.LogLevel {
-    /// Initializes a new instance of Capture log level using provided Swifty Beaver log level.
+    /// Initializes a new instance of Capture log level using provided `SwiftyBeaver` log level.
     ///
-    /// - parameter logLevel: Swifty Beaver log level.
+    /// - parameter logLevel: `SwiftyBeaver` log level.
     init(_ logLevel: SwiftyBeaver.Level) {
         switch logLevel {
         case .verbose:
