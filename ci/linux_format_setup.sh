@@ -4,11 +4,17 @@ set -euxo pipefail
 
 mkdir -p bin/
 
-# Swift code formatting & linting.
+# swiflint - Swift code formatting & linting.
 curl -OL https://github.com/realm/SwiftLint/releases/download/0.54.0/swiftlint_linux.zip
 unzip swiftlint_linux.zip
 mv swiftlint bin/
 chmod +x bin/swiftlint
+
+# SwiftFormat - More advanced Swift code formatting.
+curl -OL https://github.com/nicklockwood/SwiftFormat/releases/download/0.51.2/swiftformat_linux.zip
+unzip swiftformat_linux.zip
+mv swiftformat_linux bin/swiftformat
+chmod +x bin/swiftformat
 
 # The binaries above dynamically link a library provided by Swift, so download Swift + update the
 # LD_LIBRARY_PATH tell the system how to find them.

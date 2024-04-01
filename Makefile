@@ -1,3 +1,3 @@
 .PHONY: format
 format:
-	swiftlint --fix && swiftlint
+	swiftformat . && swiftlint --fix && swiftlint
