@@ -16,6 +16,12 @@ unzip swiftformat_linux.zip
 mv swiftformat_linux bin/swiftformat
 chmod +x bin/swiftformat
 
+# DrString - Validate documentation comments.
+curl -OL https://github.com/dduan/DrString/releases/download/0.6.1/drstring-x86_64-unknown-ubuntu.tar.gz
+tar xf drstring-x86_64-unknown-ubuntu.gz
+mv drstring-x86_64-unknown-ubuntu/usr/bin/drstring bin/drstring
+chmod +x bin/drstring
+
 # The binaries above dynamically link a library provided by Swift, so download Swift + update the
 # LD_LIBRARY_PATH tell the system how to find them.
 swift_archive_name="swift-5.9.2-RELEASE-ubuntu22.04"
