@@ -1,4 +1,4 @@
-name: Tests
+name: tests
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
     cancel-in-progress: true
 jobs:
-  tests:
+  capture_sdk_swift_pm_integration:
     runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
