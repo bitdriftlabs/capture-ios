@@ -52,7 +52,7 @@ extension LogLevel {
         case .verbose, .all:
             self = .trace
         default:
-            self = .trace
+            self = .debug
         }
     }
 }
