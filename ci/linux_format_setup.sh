@@ -11,7 +11,7 @@ mv swiftlint bin/
 chmod +x bin/swiftlint
 
 # SwiftFormat - More advanced Swift code formatting.
-curl -OL https://github.com/nicklockwood/SwiftFormat/releases/download/0.51.2/swiftformat_linux.zip
+curl -OL https://github.com/nicklockwood/SwiftFormat/releases/download/0.53.5/swiftformat_linux.zip
 unzip swiftformat_linux.zip
 mv swiftformat_linux bin/swiftformat
 chmod +x bin/swiftformat
