@@ -15,10 +15,10 @@ jobs:
       # Checkout repo to Github Actions runner
       - name: Checkout
         uses: actions/checkout@v4
-      - name: install formatters
+      - name: Set up CI
         run: ./ci/linux_format_setup.sh
-      - name: test
+      - name: Run 'make format'
         run: PATH=./bin:$PATH make format
-      - name: check diff
+      - name: Check & print diff
         run: git --no-pager diff && git diff --quiet
 
