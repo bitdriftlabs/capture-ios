@@ -27,6 +27,9 @@ final class CaptureSwiftyBeaverLogger: BaseDestination {
         Capture.Logger.log(
             level: LogLevel(level),
             message: msg,
+            file: file,
+            line: line,
+            function: function,
             fields: fields
         )
 

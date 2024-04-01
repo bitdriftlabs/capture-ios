@@ -17,7 +17,10 @@ final class CaptureDDLogger: NSObject, DDLogger {
 
         Capture.Logger.log(
             level: level,
-            message: logMessage.message
+            message: logMessage.message,
+            file: logMessage.file,
+            line: Int(logMessage.line),
+            function: logMessage.function,
             fields: [
                 "source": "CocoaLumberjack",
             ]
