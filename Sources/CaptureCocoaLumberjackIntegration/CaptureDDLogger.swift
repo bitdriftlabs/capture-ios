@@ -18,6 +18,9 @@ final class CaptureDDLogger: NSObject, DDLogger {
         Capture.Logger.log(
             level: level,
             message: logMessage.message
+            fields: [
+                "source": "CocoaLumberjack",
+            ]
         )
     }
 
