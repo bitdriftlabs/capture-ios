@@ -25,7 +25,7 @@ jobs:
         run: |
           CHECKSUM=$(curl "https://dl.bitdrift.io/sdk/ios/capture-$VERSION/Capture.zip.sha256")
 
-          sed -e "s#\(https://dl\.bitdrift\.io/sdk/ios/capture-\)\(.*\)\(/Capture\.zip\)#\1$VERSION\3#g" Package.swift \
+          sed -e "s#\(capture-\)\(.*\)\(/Capture\.zip\)#\1$VERSION\3#g" Package.swift \
           | sed -e "s#\(checksum: \"\)\(.*\)\(\"\)#\1$CHECKSUM\3#g" \
           > Package_tmp.swift
 
