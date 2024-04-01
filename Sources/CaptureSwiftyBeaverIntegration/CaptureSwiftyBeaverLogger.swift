@@ -5,7 +5,7 @@ import SwiftyBeaver
 /// library and can be used as a drop-in solution for forwarding `SwiftyBeaver` logs to bitdrift
 /// Capture SDK.
 final class CaptureSwiftyBeaverLogger: BaseDestination {
-    public override func send(
+    override func send(
         _ level: SwiftyBeaver.Level,
         msg: String,
         thread: String,
@@ -13,8 +13,7 @@ final class CaptureSwiftyBeaverLogger: BaseDestination {
         function: String,
         line: Int,
         context: Any? = nil
-    ) -> String?
-    {
+    ) -> String? {
         Capture.Logger.log(
             level: LogLevel(level),
             message: msg
