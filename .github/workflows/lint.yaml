@@ -1,4 +1,4 @@
-name: format_check
+name: lint
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 jobs:
-  format_check:
+  format:
     runs-on: ubuntu-22.04
     steps:
       # Checkout repo to Github Actions runner
