@@ -1,5 +1,9 @@
 import Capture
+#if SWIFT_PACKAGE
+import CocoaLumberjackSwift
+#else
 import CocoaLumberjack
+#endif
 import os
 
 /// The wrapper around Capture SDK logger that conforms to `DDLogger` protocol from `CocoaLumberjack`
