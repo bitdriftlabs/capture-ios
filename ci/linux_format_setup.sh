@@ -20,6 +20,8 @@ chmod +x bin/swiftformat
 curl -OL https://github.com/dduan/DrString/releases/download/0.6.1/drstring-x86_64-unknown-ubuntu.tar.gz
 tar xf drstring-x86_64-unknown-ubuntu.tar.gz
 ls -al
+echo "NEXT"
+ls -al usr
 mv drstring-x86_64-unknown-ubuntu/usr/bin/drstring bin/drstring
 chmod +x bin/drstring
 
