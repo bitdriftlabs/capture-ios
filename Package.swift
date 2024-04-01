@@ -17,7 +17,7 @@ let package = Package(
             checksum: "2bcc60ea9e22679b74cb0ef566117e3949e085cd7346ce2639245dcc720fd982"
         ),
         .testTarget(
-            name: "CaptureUnit",
+            name: "CaptureTests",
             dependencies: ["Capture"]
         ),
     ]
