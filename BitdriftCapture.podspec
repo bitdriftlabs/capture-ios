@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'BitdriftCapture'
-    s.version = 'VERSION'
+    s.version = '0.9.113'
     s.authors = {
       'Bitdrift, Inc.' => 'info@bitdrift.io',
       'Rafal Augustyniak' => 'rafal@bitdrift.io',

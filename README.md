@@ -28,7 +28,7 @@ end
 ### Swift Package Manager
 
 ```swift
-.package(url: "https://github.com/bitdriftlabs/capture-ios.git", from: "0.9.112"),
+.package(url: "https://github.com/bitdriftlabs/capture-ios.git", from: "<version>")
 ```
 
 ## Local Development
