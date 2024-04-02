@@ -13,9 +13,10 @@ on:
         required: true
         type: string
 jobs: 
-  generate-package-swift:
+  release-gh:
     name: Create GitHub Release
     runs-on: ubuntu-latest
+    environment: release
     permissions:
       contents: write
       pull-requests: write
