@@ -19,7 +19,6 @@ jobs:
     environment: release
     permissions:
       contents: write
-      pull-requests: write
     steps:
       - name: Create GitHub Release
         id: create-gh-release
