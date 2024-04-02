@@ -23,6 +23,8 @@ jobs:
     uses: ./.github/workflows/release_gh.yaml
     with:
       version: ${{ needs.version-change.outputs.version }}
+    permissions:
+      contents: write
     needs: version-change
     if: needs.version-change.outputs.version_changed == 'true'
     secrets: inherit
