@@ -30,6 +30,6 @@ jobs:
     secrets: inherit
   release-cocoapods:
     uses: ./.github/workflows/release_cocoapods.yaml
-    needs: version-change
+    needs: create-github-release
     if: needs.version-change.outputs.version_changed == 'true'
     secrets: inherit
