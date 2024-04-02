@@ -1,4 +1,4 @@
-name: update SDK version
+name: Update SDK version
 on:
     workflow_call:
       inputs:
@@ -27,7 +27,7 @@ jobs:
       - name: Update .version file
         id: state
         run: | 
-            echo "${{ inputs.version }}" > .version
+            echo -n "${{ inputs.version }}" > .version
             echo "Generated new '.version' file:"
             cat .version
       - name: Update Package.swift file
