@@ -1,33 +1,31 @@
-name: Release
+name: Release GitHub
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    inputs:
+      version:
+        description: 'The SDK version to release, ex: 0.9.113'
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The SDK version to release, ex: 0.9.113'
+        required: true
+        type: string
 jobs: 
-  generate-package-swift:
+  release-gh:
     name: Create GitHub Release
     runs-on: ubuntu-latest
+    environment: release
     permissions:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-      - name: Check for Changes
-        id: state
-        run: |
-          if ! git diff --exit-code HEAD~1 HEAD Package.swift; then
-            echo "Detected changes..."
-            echo "dirty=true" >> $GITHUB_OUTPUT
-          fi
       - name: Create GitHub Release
         id: create-gh-release
-        if: steps.state.outputs.dirty == 'true'
         run: |
-            version=$(grep -o '[0-9]\.[0-9]\+\.[0-9]\+' Package.swift) 
-            echo "Found version in Package.swift file: '$version'"
-
-            gh release create "$version" --target "$GITHUB_REF_NAME" --title "$version"
+          gh release create "${{ inputs.version }}" \
+            --target "$GITHUB_REF_NAME" \
+            --title "${{ inputs.version }}"
         env:
           GH_TOKEN: ${{ github.token }}

@@ -1,0 +1,57 @@
+name: update SDK version
+on:
+    workflow_call:
+      inputs:
+        version:
+          description: 'The SDK version to release, ex: 0.9.113'
+          required: true
+          type: string
+    workflow_dispatch:
+      inputs:
+        version:
+          description: 'The SDK version to release, ex: 0.9.113'
+          required: true
+          type: string
+jobs: 
+  version_update:
+    name: Update Version
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Update .version file
+        id: state
+        run: | 
+            echo "${{ inputs.version }}" > .version
+            echo "Generated new '.version' file:"
+            cat .version
+      - name: Check for version change
+        id: version-change
+        run: |
+          if ! git diff --exit-code HEAD~1 HEAD .version; then
+            echo "Detected changes..."
+            echo "version_changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update Package.swift file
+        run: ./ci/swift_pm_package_update.sh ${{ inputs.version }}
+      - name: Update CocoaPods podspec file
+        run: ./ci/cocoapods_update.sh ${{ inputs.version }}
+
+      - name: Create Pull Request
+        id: create-pr
+        if: steps.state.outputs.version_changed == 'true'
+        # v5.0.2
+        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Update version to ${{ inputs.version }}
+          commit-message: Update version to ${{ inputs.version }}
+          committer: GitHub Action <noreply@github.com>
+          base: main
+          delete-branch: true
+          branch: update-version-${{ inputs.version }}
