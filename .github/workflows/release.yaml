@@ -24,10 +24,10 @@ jobs:
     with:
       version: ${{ needs.version-change.outputs.version }}
     needs: version-change
-    if: needs.version-change.outputs.version_changed == 'true' || github.event_name == 'push'
+    if: needs.version-change.outputs.version_changed == 'true'
     secrets: inherit
   release-cocoapods:
     uses: ./.github/workflows/release_cocoapods.yaml
     needs: version-change
-    if: needs.version-change.outputs.version_changed == 'true' || github.event_name == 'push'
+    if: needs.version-change.outputs.version_changed == 'true'
     secrets: inherit
