@@ -15,7 +15,7 @@ on:
 jobs: 
   version_update:
     name: Update Version
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
@@ -32,7 +32,7 @@ jobs:
       - name: Check for version change
         id: version-change
         run: |
-          if ! git diff --exit-code HEAD~1 HEAD .version; then
+          if [[ `git status --porcelain` ]]; then
             echo "Detected changes..."
             echo "version_changed=true" >> $GITHUB_OUTPUT
           fi
