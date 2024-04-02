@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
       'UIKit', 
       'CoreTelephony'
     ]
-    s.source = { http: "https://dl.bitdrift.io/sdk/ios/capture-0.9.113/Capture.zip" }
+    s.source = { http: "https://dl.bitdrift.io/sdk/ios/capture-0.9.112/Capture.zip" }
     s.vendored_frameworks = 'Capture.xcframework'
   end
