@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   format:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       # Checkout repo to Github Actions runner
       - name: Checkout

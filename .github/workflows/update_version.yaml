@@ -15,7 +15,7 @@ on:
 jobs: 
   version_update:
     name: Update Version
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: write
       pull-requests: write
