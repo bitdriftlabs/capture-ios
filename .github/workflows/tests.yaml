@@ -14,8 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up CI
-        run: | # https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#xcode
-          sudo xcode-select --switch /Applications/Xcode_15.0.app
+        run: ./ci/mac_ci_setup.sh
       - name: Run Tests
         run:  |
           xcodebuild \

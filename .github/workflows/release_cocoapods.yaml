@@ -1,0 +1,16 @@
+name: Release CocoaPods
+on:
+  workflow_call:
+  workflow_dispatch:
+jobs:
+  release-cocoapods:
+    name: Publish CocoaPods specs
+    environment: release-cocoapods
+    runs-on: macos-13
+    permissions:
+      contents: read
+    steps:
+      - name: Set up CI
+        run: ./ci/mac_ci_setup.sh
+      - name: Create GitHub Release
+        run: /ci/release_cocoapods.sh

@@ -1,0 +1,33 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  version-change:
+    name: Check for version change
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Check
+        run: |
+          if ! git diff --exit-code HEAD~1 HEAD .version; then
+            echo "Detected changes..."
+            echo "version=$(cat .version)" >> $GITHUB_ENV
+            echo "version_changed=true" >> $GITHUB_OUTPUT
+          fi
+  # This effectively releases a new Swift Package Manager version
+  create-github-release:
+    uses: ./.github/workflows/release_gh.yaml
+    with:
+      version: ${{ needs.version-change.outputs.version }}
+    needs: version-change
+    if: needs.version-change.outputs.version_changed == 'true' || github.event_name == 'push'
+    secrets: inherit
+  release-cocoapods:
+    uses: ./.github/workflows/release_cocoapods.yaml
+    needs: version-change
+    if: needs.version-change.outputs.version_changed == 'true' || github.event_name == 'push'
+    secrets: inherit
