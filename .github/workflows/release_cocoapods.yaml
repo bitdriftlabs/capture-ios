@@ -12,5 +12,7 @@ jobs:
     steps:
       - name: Set up CI
         run: ./ci/mac_ci_setup.sh
-      - name: Create GitHub Release
+      - name: Publish CocoaPods specs
         run: /ci/release_cocoapods.sh
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
