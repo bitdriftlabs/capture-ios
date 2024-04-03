@@ -2,7 +2,7 @@ import CaptureCocoaLumberjack
 import CocoaLumberjackSwift
 import XCTest
 
-final class IntegrationTests: XCTestCase {
+final class CaptureCocoaLumberjackIntegrationTests: XCTestCase {
     func testAddingCaptureDDLogger() {
         DDLog.add(CaptureDDLogger())
     }
