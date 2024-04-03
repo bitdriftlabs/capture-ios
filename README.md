@@ -22,6 +22,10 @@ Logger.configure(
 ```Ruby
 target 'MyApp' do
   pod 'BitdriftCapture'
+
+  # Optional integrations
+  pod 'CaptureCocoaLumberjack'
+  pod 'CaptureSwiftyBeaver'
 end
 ```
 
