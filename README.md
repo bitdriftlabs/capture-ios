@@ -23,8 +23,9 @@ Logger.configure(
 target 'MyApp' do
   pod 'BitdriftCapture'
 
-  # Optional integrations
+  # Optional integration with CocoaLumberjack logging library
   pod 'CaptureCocoaLumberjack'
+  # Optional integration with SwiftyBeaver logging library
   pod 'CaptureSwiftyBeaver'
 end
 ```
