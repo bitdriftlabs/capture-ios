@@ -7,7 +7,7 @@ echo "+ Pushing podspecs to CocoaPods"
 function publish_podspec() {
   local -r pod_name="$1"
 
-  echo "++ Pushing '$pod_name' podspec to CocoaPods"
+  echo -e "\n++ Pushing '$pod_name' podspec to CocoaPods\n"
   pod trunk push "$pod_name.podspec" --verbose
 }
 

@@ -19,7 +19,7 @@ function update_podspec() {
     > "$tmp_podspec"
   mv "$tmp_podspec" "$podspec"
 
-  echo "++ Generated $podspec:"
+  echo -e "\n++ Generated $podspec:\n"
   cat "$podspec"
 }
 
