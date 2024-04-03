@@ -13,5 +13,5 @@ sed -e "s#\(capture-\)\(.*\)\(/Capture\.zip\)#\1$version\3#g" Package.swift \
   > Package_tmp.swift
 mv Package_tmp.swift Package.swift
 
-echo "Generate Package.swift:"
+echo "+ Generated Package.swift:"
 cat Package.swift
