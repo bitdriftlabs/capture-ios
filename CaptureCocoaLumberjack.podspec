@@ -35,4 +35,5 @@ Pod::Spec.new do |s|
     s.dependency 'CocoaLumberjack', '~> 3.8.0'
 
     s.source_files = ['Sources/CaptureCocoaLumberjack/**/*.swift']
+    s.preserve_paths = ['NOTICE.txt']
   end

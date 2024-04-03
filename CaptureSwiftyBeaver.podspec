@@ -36,4 +36,5 @@ Pod::Spec.new do |s|
     s.dependency 'SwiftyBeaver', '~> 2.0.0'
 
     s.source_files = ['Sources/CaptureSwiftyBeaver/**/*.swift']
+    s.preserve_paths = ['NOTICE.txt']
   end
