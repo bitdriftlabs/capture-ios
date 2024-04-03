@@ -4,8 +4,8 @@ import SwiftyBeaver
 /// The wrapper around Capture SDK logger that conforms to `BaseDestination` protocol from `SwiftyBeaver`
 /// library and can be used as a drop-in solution for forwarding `SwiftyBeaver` logs to bitdrift
 /// Capture SDK.
-final class CaptureSwiftyBeaverLogger: BaseDestination {
-    override func send(
+public final class CaptureSwiftyBeaverLogger: BaseDestination {
+    override public func send(
         _ level: SwiftyBeaver.Level,
         msg: String,
         thread: String,

@@ -7,15 +7,15 @@ let package = Package(
     products: [
         .library(
             name: "Capture",
-            targets: ["CaptureTarget"]
+            targets: ["Capture"]
         ),
         .library(
             name: "CaptureCocoaLumberjack",
             targets: ["CaptureCocoaLumberjack"]
         ),
         .library(
-            name: "CaptureSwiftyBeaverIntegration",
-            targets: ["CaptureSwiftyBeaverIntegration"]
+            name: "CaptureSwiftyBeaver",
+            targets: ["CaptureSwiftyBeaver"]
         ),
     ],
     dependencies: [
@@ -24,27 +24,38 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "CaptureTarget",
+            name: "Capture",
             url: "https://dl.bitdrift.io/sdk/ios/capture-0.9.113/Capture.zip",
-            checksum: "2bcc60ea9e22679b74cb0ef566117e3949e085cd7346ce2639245dcc720fd982"
+            checksum: "7963836601475bd9bd8b70a45465211fbbafe808d193c2e25284e23a83783fae"
         ),
         .target(
             name: "CaptureCocoaLumberjack",
             dependencies: [
-                "CaptureTarget",
+                "Capture",
                 .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
             ]
         ),
         .target(
             name: "CaptureSwiftyBeaver",
             dependencies: [
-                "CaptureTarget",
+                "Capture",
                 .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
             ]
         ),
         .testTarget(
             name: "CaptureTests",
-            dependencies: ["CaptureTarget"]
+            dependencies: ["Capture"],
+            path: "Tests/Capture"
+        ),
+        .testTarget(
+            name: "CaptureSwiftyBeaverTests",
+            dependencies: ["CaptureSwiftyBeaver"],
+            path: "Tests/CaptureSwiftyBeaver"
+        ),
+        .testTarget(
+            name: "CaptureCocoaLumberjackTests",
+            dependencies: ["CaptureCocoaLumberjack"],
+            path: "Tests/CaptureCocoaLumberjack"
         ),
     ]
 )

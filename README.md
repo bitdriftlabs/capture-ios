@@ -33,4 +33,8 @@ end
 
 ## Local Development
 
+Open `Package.swift` file using Xcode to start developing.
+
+Run `make test` to run project tests.
+
 Run `make format` to run various formatting tools and linter checks.
