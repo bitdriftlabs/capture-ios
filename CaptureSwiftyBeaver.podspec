@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
     s.name = 'CaptureSwiftyBeaver'
     s.version = '0.9.113'
-    s.summary = "Official Capture integration library for interacting with SwiftyBeaver."
+    s.summary = "Official Capture integration for SwiftyBeaver."
 
     s.homepage = 'https://bitdrift.io'
     s.license = {
