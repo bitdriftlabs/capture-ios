@@ -22,6 +22,11 @@ Logger.configure(
 ```Ruby
 target 'MyApp' do
   pod 'BitdriftCapture'
+
+  # Optional integration with CocoaLumberjack logging library
+  pod 'CaptureCocoaLumberjack'
+  # Optional integration with SwiftyBeaver logging library
+  pod 'CaptureSwiftyBeaver'
 end
 ```
 
@@ -32,5 +37,9 @@ end
 ```
 
 ## Local Development
+
+Open `Package.swift` file using Xcode to start developing.
+
+Run `make test` to run project tests.
 
 Run `make format` to run various formatting tools and linter checks.

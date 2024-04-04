@@ -1,7 +1,8 @@
+
 Pod::Spec.new do |s|
-    s.name = 'BitdriftCapture'
-    s.summary = "A dynamic observability SDK for mobile developers."
+    s.name = 'CaptureSwiftyBeaver'
     s.version = '0.9.113'
+    s.summary = "Official Capture integration for SwiftyBeaver."
 
     s.homepage = 'https://bitdrift.io'
     s.license = {
@@ -15,20 +16,25 @@ Pod::Spec.new do |s|
       'Miguel Angel Juárez López' => 'miguel@bitdrift.io',
     }
 
+    s.source = {
+        :git => 'https://github.com/bitdriftlabs/capture-ios.git',
+        :tag => s.version.to_s
+    }
+
     s.documentation_url = 'https://docs.bitdrift.io'
     s.social_media_url = 'https://twitter.com/bitdriftio'
 
-    s.module_name = 'Capture'
-
     s.platform = :ios, '13.0'
+    s.ios.deployment_target = '13.4'
     s.swift_versions = ['5.7']
-    s.frameworks = [
-      'Network', 
-      'UIKit', 
-      'CoreTelephony'
-    ]
 
-    s.source = { http: "https://dl.bitdrift.io/sdk/ios/capture-0.9.113/Capture.zip" }
+    # Pod needs to be built as a static framework as it depends
+    # on a static Capture framework (via BitdriftCapture pod)
+    s.static_framework = true
+
+    s.dependency 'BitdriftCapture', '= ' + s.version.to_s
+    s.dependency 'SwiftyBeaver', '~> 2.0.0'
+
+    s.source_files = ['Sources/CaptureSwiftyBeaver/**/*.swift']
     s.preserve_paths = ['NOTICE.txt']
-    s.vendored_frameworks = 'Capture.xcframework'
   end

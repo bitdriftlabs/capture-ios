@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up CI
-        run: ./ci/linux_format_setup.sh
+        run: ./tools/ci/linux_format_setup.sh
       - name: Run 'make format'
         run: PATH=./bin:$PATH make format
       - name: Check & print diff

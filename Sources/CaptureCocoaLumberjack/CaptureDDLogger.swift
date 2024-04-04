@@ -9,12 +9,12 @@ import os
 /// The wrapper around Capture SDK logger that conforms to `DDLogger` protocol from `CocoaLumberjack`
 /// library and can be used as a drop-in solution for forwarding `CocoaLumberjack` logs to bitdrift
 /// Capture SDK.
-final class CaptureDDLogger: NSObject, DDLogger {
+public final class CaptureDDLogger: NSObject, DDLogger {
     private let osLogger = OSLogger()
 
-    var logFormatter: DDLogFormatter?
+    public var logFormatter: DDLogFormatter?
 
-    func log(message logMessage: DDLogMessage) {
+    public func log(message logMessage: DDLogMessage) {
         guard let level = LogLevel(logMessage.level) else {
             return
         }
@@ -31,7 +31,7 @@ final class CaptureDDLogger: NSObject, DDLogger {
         )
     }
 
-    func didAdd() {
+    public func didAdd() {
         let isCaptureLoggerConfigured = Capture.Logger.sessionID != nil
         if !isCaptureLoggerConfigured {
             // swiftlint:disable line_length

@@ -14,11 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up CI
-        run: ./ci/mac_ci_setup.sh
+        run: ./tools/ci/mac_ci_setup.sh
       - name: Run Tests
-        run:  |
-          xcodebuild \
-          -scheme Capture \
-          -sdk iphonesimulator17.2 \
-          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 15' \
-          test
+        run:  make tests

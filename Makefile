@@ -12,3 +12,7 @@ swiftformat:
 
 .PHONY: format
 format: swiftformat swiftlint drstring
+
+.Phony: test
+test:
+	./tools/run_tests.sh
