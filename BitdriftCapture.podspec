@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
       'CoreTelephony'
     ]
 
-    s.source = { http: "https://dl.bitdrift.io/sdk/ios/capture-0.9.113/Capture.zip" }
+    s.source = { http: "https://dl.bitdrift.io/sdk/ios/capture-0.9.114/Capture.zip" }
     s.preserve_paths = ['NOTICE.txt']
     s.vendored_frameworks = 'Capture.xcframework'
   end
