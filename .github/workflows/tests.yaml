@@ -16,4 +16,4 @@ jobs:
       - name: Set up CI
         run: ./tools/ci/mac_ci_setup.sh
       - name: Run Tests
-        run:  make tests
+        run:  make test

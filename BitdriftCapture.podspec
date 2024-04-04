@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name = 'BitdriftCapture'
     s.summary = "A dynamic observability SDK for mobile developers."
-    s.version = '0.9.113'
+    s.version = '0.9.114'
 
     s.homepage = 'https://bitdrift.io'
     s.license = {
