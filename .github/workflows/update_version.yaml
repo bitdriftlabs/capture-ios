@@ -21,7 +21,7 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Update .version file
         id: state
         run: | 
@@ -29,9 +29,9 @@ jobs:
             echo "Generated new '.version' file:"
             cat .version
       - name: Update Package.swift file
-        run: ./ci/swift_pm_package_update.sh ${{ inputs.version }}
+        run: ./tools/ci/swift_pm_package_update.sh ${{ inputs.version }}
       - name: Update CocoaPods podspec file
-        run: ./ci/cocoapods_update.sh ${{ inputs.version }}
+        run: ./tools/ci/cocoapods_update.sh ${{ inputs.version }}
 
       - name: Create Pull Request
         id: create-pr
