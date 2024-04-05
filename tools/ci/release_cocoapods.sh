@@ -18,5 +18,10 @@ podspecs=(\
 )
 
 for podspec in "${podspecs[@]}"; do
+  # Make sure that the CocoaPods specs repo is up-to-date.
+  # Important, as we push specs sequentially, and one podspec might depend on another.
+  rm -rf ~/.cocoapods/repos/trunk
+  pod repo update --verbose
+
   publish_podspec "$podspec"
 done
