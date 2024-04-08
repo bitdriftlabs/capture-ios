@@ -12,7 +12,7 @@ function publish_podspec() {
 }
 
 podspecs=(\
-  # "BitdriftCapture" \
+  "BitdriftCapture" \
   "CaptureCocoaLumberjack" \
   "CaptureSwiftyBeaver" \
 )
