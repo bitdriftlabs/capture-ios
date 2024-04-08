@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 jobs:
   version-change:
     name: Check for version change
@@ -19,7 +20,7 @@ jobs:
         run: |
           if ! git diff --exit-code HEAD~1 HEAD .version; then
             echo "Detected changes..."
-            echo "version=$(cat .version)" >> $GITHUB_ENV
+            echo "version=\"$(cat .version)\"" >> $GITHUB_ENV
             echo "version_changed=true" >> $GITHUB_OUTPUT
           fi
   # This effectively releases a new Swift Package Manager version
