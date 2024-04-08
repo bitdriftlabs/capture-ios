@@ -4,7 +4,7 @@ set -euxo pipefail
 
 readonly version="$1"
 
-echo "+ Generating podpsecs for $version version"
+echo "+++ Generating podpsecs for $version version"
 
 function update_podspec() {
   local -r pod_name="$1"
