@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-echo "+ Pushing podspecs to CocoaPods"
+echo "+++ Pushing podspecs to CocoaPods"
 
 function publish_podspec() {
   local -r pod_name="$1"
