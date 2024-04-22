@@ -62,6 +62,10 @@ extension Capture.LogLevel {
             self = .warning
         case .error:
             self = .error
+        case .critical:
+            self = .error
+        case .fault:
+            self = .error
         }
     }
 }
