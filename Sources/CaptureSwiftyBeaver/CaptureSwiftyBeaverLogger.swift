@@ -21,7 +21,7 @@ public final class CaptureSwiftyBeaverLogger: BaseDestination {
             return [
                 "context": String(describing: context).trimmingCharacters(in: .whitespacesAndNewlines),
                 "source": "SwiftBeaver",
-                "thread_id": thread,
+                "thread": thread,
             ]
         }
 
