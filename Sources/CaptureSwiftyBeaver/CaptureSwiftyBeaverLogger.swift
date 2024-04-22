@@ -21,6 +21,7 @@ public final class CaptureSwiftyBeaverLogger: BaseDestination {
             return [
                 "context": String(describing: context).trimmingCharacters(in: .whitespacesAndNewlines),
                 "source": "SwiftBeaver",
+                "thread": thread,
             ]
         }
 
@@ -60,6 +61,10 @@ extension Capture.LogLevel {
         case .warning:
             self = .warning
         case .error:
+            self = .error
+        case .critical:
+            self = .error
+        case .fault:
             self = .error
         }
     }
