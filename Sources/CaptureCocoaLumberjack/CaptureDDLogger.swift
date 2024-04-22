@@ -27,6 +27,7 @@ public final class CaptureDDLogger: NSObject, DDLogger {
             function: logMessage.function,
             fields: [
                 "source": "CocoaLumberjack",
+                "thread_id": logMessage.threadID
             ]
         )
     }
