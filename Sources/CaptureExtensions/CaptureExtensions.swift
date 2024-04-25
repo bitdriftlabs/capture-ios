@@ -1,7 +1,10 @@
+import CaptureShared
 import Foundation
 
 // Ensures that the hook installation process happens at most once.
 private let kInitializeOnce: () = CaptureExtensions.installURLSessionTaskHooks()
+// The OS logger to use by the library.
+let kLogger = OSLogger(subsystem: "CaptureExtensions")
 
 public enum CaptureExtensions {
     public static func enableNetworkInstrumentation() {

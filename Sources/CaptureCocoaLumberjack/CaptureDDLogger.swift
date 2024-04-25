@@ -1,4 +1,5 @@
 import Capture
+import CaptureShared
 #if SWIFT_PACKAGE
     import CocoaLumberjackSwift
 #else
@@ -10,7 +11,7 @@ import os
 /// library and can be used as a drop-in solution for forwarding `CocoaLumberjack` logs to bitdrift
 /// Capture SDK.
 public final class CaptureDDLogger: NSObject, DDLogger {
-    private let osLogger = OSLogger()
+    private let osLogger = OSLogger(subsystem: "CocoaLumberjackIntegration")
 
     public var logFormatter: DDLogFormatter?
 

@@ -26,8 +26,6 @@ extension URLSessionTask {
         var currentClass = `class`
         var result = [AnyClass]()
 
-        //
-
         repeat {
             let superClass = currentClass.superclass()
 
