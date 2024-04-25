@@ -8,7 +8,7 @@ final class URLSessionTaskInstrumentation {
 
     func taskWillResume(_ task: URLSessionTask) {
         // This enables us not to instrument requests performed by Capture SDK.
-        guard task.instrumentationEnabled else {
+        if task.isCaptureAPI {
             return
         }
 
@@ -22,6 +22,7 @@ final class URLSessionTaskInstrumentation {
 
         let requestInfo = HTTPRequestInfo(task: task)
         task.requestInfo = requestInfo
+
         Logger.log(requestInfo)
     }
 

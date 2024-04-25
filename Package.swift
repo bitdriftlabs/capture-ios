@@ -10,6 +10,10 @@ let package = Package(
             targets: ["Capture"]
         ),
         .library(
+            name: "CaptureExtensions",
+            targets: ["CaptureExtensions"]
+        ),
+        .library(
             name: "CaptureCocoaLumberjack",
             targets: ["CaptureCocoaLumberjack"]
         ),
@@ -29,9 +33,14 @@ let package = Package(
             checksum: "5e7c56b6c38780bf3246d2a7e06d0f7696b918d4c6ecb4b3821a6123063e2ba1"
         ),
         .target(
+            name: "CaptureExtensions",
+            dependencies: ["Capture", "CaptureShared"]
+        ),
+        .target(
             name: "CaptureCocoaLumberjack",
             dependencies: [
                 "Capture",
+                "CaptureShared",
                 .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
             ]
         ),
@@ -42,10 +51,16 @@ let package = Package(
                 .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
             ]
         ),
+        .target(name: "CaptureShared"),
         .testTarget(
             name: "CaptureTests",
             dependencies: ["Capture"],
             path: "Tests/Capture"
+        ),
+        .testTarget(
+            name: "CaptureExtensionsTests",
+            dependencies: ["CaptureExtensions"],
+            path: "Tests/CaptureExtensions"
         ),
         .testTarget(
             name: "CaptureSwiftyBeaverTests",

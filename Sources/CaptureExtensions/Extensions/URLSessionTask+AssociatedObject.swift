@@ -1,12 +1,11 @@
 import Capture
 import Foundation
 
-private var kInstrumentationEnabledKey: UInt8 = 0
 private var kRequestInfoKey: UInt8 = 0
 
 extension URLSessionTask {
-    var instrumentationEnabled: Bool {
-        self.getAssociatedObject(&kInstrumentationEnabledKey) as? Bool ?? true
+    var isCaptureAPI: Bool {
+        self.originalRequest?.allHTTPHeaderFields?["x-capture-api"] == "true"
     }
 
     var requestInfo: HTTPRequestInfo? {

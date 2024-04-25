@@ -1,18 +1,16 @@
 import Foundation
 
 // Ensures that the hook installation process happens at most once.
-let kInitializeOnce: () = {
-    CapturePlatform.installURLSessionTaskHooks()
-}()
+private let kInitializeOnce: () = CaptureExtensions.installURLSessionTaskHooks()
 
-public enum CapturePlatform {
+public enum CaptureExtensions {
     public static func enableNetworkInstrumentation() {
         kInitializeOnce
 
         // TODO(Augustyniak): Remove before merging.
         URLSession.shared
             // swiftlint:disable force_unwrapping
-            .dataTask(with: URL(string: "https://google.com")!) { _, _, _ in
+            .dataTask(with: URL(string: "https://google.com/")!) { _, _, _ in
                 print("Request completion")
             }
             .resume()
@@ -47,7 +45,7 @@ public enum CapturePlatform {
     }
 
     private static func installURLSessionTaskSetStateHook(class: AnyClass) {
-        let selector = Selector("setState:")
+        let selector = Selector(("setState:"))
         let classes = URLSessionTask.classesToSwizzle(for: selector, class: `class`)
         for klass in classes {
             replace_methods(
