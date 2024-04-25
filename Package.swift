@@ -23,14 +23,17 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack.git", from: "3.8.0"),
-        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "2.0.0"),
+        .package(
+            url: "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
+            .upToNextMajor(from: "3.8.0")
+        ),
+        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", .upToNextMajor(from: "2.1.0")),
     ],
     targets: [
         .binaryTarget(
             name: "Capture",
-            url: "https://dl.bitdrift.io/sdk/ios/capture-0.9.115/Capture.zip",
-            checksum: "5e7c56b6c38780bf3246d2a7e06d0f7696b918d4c6ecb4b3821a6123063e2ba1"
+            url: "https://dl.bitdrift.io/sdk/ios/capture-0.9.116/Capture.zip",
+            checksum: "9893835717921666484d3a9df9de8d5b2f5f91efa5dd89b2313f4094dbfe91b0"
         ),
         .target(
             name: "CaptureExtensions",
