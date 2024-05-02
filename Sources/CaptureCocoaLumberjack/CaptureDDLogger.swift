@@ -6,20 +6,38 @@ import Capture
 #endif
 import os
 
+extension Integration {
+    /// An Capture SDK integration that forwards all of the logs emitted with the use of the `CocoaLumberjack`
+    /// logging framework to Capture SDK.
+    ///
+    /// - returns: The `CocoaLumberjack` Capture Logger SDK integration.
+    public static func cocoaLumberjack() -> Integration {
+        return Integration { logger in
+            DDLog.add(CaptureDDLogger(logger: logger))
+        }
+    }
+}
+
 /// The wrapper around Capture SDK logger that conforms to `DDLogger` protocol from `CocoaLumberjack`
 /// library and can be used as a drop-in solution for forwarding `CocoaLumberjack` logs to bitdrift
 /// Capture SDK.
-public final class CaptureDDLogger: NSObject, DDLogger {
+final class CaptureDDLogger: NSObject, DDLogger {
+    private let logger: Logging
     private let osLogger = OSLogger()
 
-    public var logFormatter: DDLogFormatter?
+    var logFormatter: DDLogFormatter?
 
-    public func log(message logMessage: DDLogMessage) {
+    init(logger: Logging) {
+        self.logger = logger
+        super.init()
+    }
+
+    func log(message logMessage: DDLogMessage) {
         guard let level = LogLevel(logMessage.level) else {
             return
         }
 
-        Capture.Logger.log(
+        self.logger.log(
             level: level,
             message: logMessage.message,
             file: logMessage.file,
@@ -28,11 +46,12 @@ public final class CaptureDDLogger: NSObject, DDLogger {
             fields: [
                 "source": "CocoaLumberjack",
                 "thread": logMessage.threadID,
-            ]
+            ],
+            error: nil
         )
     }
 
-    public func didAdd() {
+    func didAdd() {
         let isCaptureLoggerConfigured = Capture.Logger.sessionID != nil
         if !isCaptureLoggerConfigured {
             // swiftlint:disable line_length

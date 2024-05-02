@@ -1,10 +1,31 @@
 import Capture
 import SwiftyBeaver
 
+extension Integration {
+    /// An Capture SDK integration that forwards all of the logs emitted with the use of the `SwiftyBeaver`
+    /// logging framework to Capture SDK.
+    ///
+    /// - returns: The `SwiftyBeaver` Capture Logger SDK integration.
+    public static func swiftyBeaver() -> Integration {
+        return Integration { logger in
+            SwiftyBeaver.addDestination(
+                CaptureSwiftyBeaverLogger(logger: logger)
+            )
+        }
+    }
+}
+
 /// The wrapper around Capture SDK logger that conforms to `BaseDestination` protocol from `SwiftyBeaver`
 /// library and can be used as a drop-in solution for forwarding `SwiftyBeaver` logs to bitdrift
 /// Capture SDK.
-public final class CaptureSwiftyBeaverLogger: BaseDestination {
+final class CaptureSwiftyBeaverLogger: BaseDestination {
+    private let logger: Logging
+
+    init(logger: Logging) {
+        self.logger = logger
+        super.init()
+    }
+
     override public func send(
         _ level: SwiftyBeaver.Level,
         msg: String,
@@ -25,13 +46,14 @@ public final class CaptureSwiftyBeaverLogger: BaseDestination {
             ]
         }
 
-        Capture.Logger.log(
+        self.logger.log(
             level: LogLevel(level),
             message: msg,
             file: file,
             line: line,
             function: function,
-            fields: fields
+            fields: fields,
+            error: nil
         )
 
         return super.send(
