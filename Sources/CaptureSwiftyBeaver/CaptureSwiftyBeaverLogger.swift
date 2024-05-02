@@ -26,7 +26,7 @@ final class CaptureSwiftyBeaverLogger: BaseDestination {
         super.init()
     }
 
-    override public func send(
+    override func send(
         _ level: SwiftyBeaver.Level,
         msg: String,
         thread: String,
