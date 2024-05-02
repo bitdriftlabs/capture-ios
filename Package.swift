@@ -45,6 +45,10 @@ let package = Package(
                 .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
             ]
         ),
+        .target(
+            name: "CaptureMocks",
+            dependencies: ["Capture"]
+        ),
         .testTarget(
             name: "CaptureTests",
             dependencies: ["Capture"],
@@ -52,12 +56,12 @@ let package = Package(
         ),
         .testTarget(
             name: "CaptureSwiftyBeaverTests",
-            dependencies: ["CaptureSwiftyBeaver"],
+            dependencies: ["CaptureSwiftyBeaver", "CaptureMocks"],
             path: "Tests/CaptureSwiftyBeaver"
         ),
         .testTarget(
             name: "CaptureCocoaLumberjackTests",
-            dependencies: ["CaptureCocoaLumberjack"],
+            dependencies: ["CaptureCocoaLumberjack", "CaptureMocks"],
             path: "Tests/CaptureCocoaLumberjack"
         ),
     ]
