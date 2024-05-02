@@ -2,7 +2,7 @@ import Capture
 import SwiftyBeaver
 
 extension Integration {
-    /// An Capture SDK integration that forwards all of the logs emitted with the use of the `SwiftyBeaver`
+    /// A Capture SDK integration that forwards all logs emitted using the `SwiftyBeaver`
     /// logging framework to Capture SDK.
     ///
     /// - returns: The `SwiftyBeaver` Capture Logger SDK integration.

@@ -7,7 +7,7 @@ import Capture
 import os
 
 extension Integration {
-    /// An Capture SDK integration that forwards all of the logs emitted with the use of the `CocoaLumberjack`
+    /// A Capture SDK integration that forwards all logs emitted using the `CocoaLumberjack`
     /// logging framework to Capture SDK.
     ///
     /// - returns: The `CocoaLumberjack` Capture Logger SDK integration.
