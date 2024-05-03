@@ -50,17 +50,6 @@ final class CaptureDDLogger: NSObject, DDLogger {
             error: nil
         )
     }
-
-    func didAdd() {
-        let isCaptureLoggerConfigured = Capture.Logger.sessionID != nil
-        if !isCaptureLoggerConfigured {
-            // swiftlint:disable line_length
-            self.osLogger.log(
-                level: .error,
-                message: "`CaptureDDLogger` added as output target of `DDLogger` before the configuration of Capture SDK. Logs emitted prior to the configuration of the Capture SDK will not be visible to the SDK."
-            )
-        }
-    }
 }
 
 extension LogLevel {
