@@ -5,8 +5,8 @@ on:
         - main
     pull_request:
 jobs:
-  release-cocoapods:
-    name: Verify podspecs
+  verify-cocoapods:
+    name: verify
     runs-on: macos-13
     permissions:
       contents: read
