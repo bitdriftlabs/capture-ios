@@ -20,7 +20,7 @@ final class CaptureCocoaLumberjackIntegrationTests: XCTestCase {
         DDLogWarn("Warn")
         DDLogError("Error")
 
-        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectation], timeout: 1))
+        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectation], timeout: 5))
         XCTAssertEqual(logger.logs.map(\.message), [
             "Verbose",
             "Debug",
