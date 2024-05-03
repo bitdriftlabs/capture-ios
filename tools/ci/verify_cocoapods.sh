@@ -16,6 +16,10 @@ echo "+++ Adding local-podpsecs CocoaPods repo"
 local_podspecs_dir="$(mktemp -d)"
 readonly local_podspecs_dir="$local_podspecs_dir"
 
+# Great git repo for local-podspecs.
+(cd "$local_podspecs_dir" && git init --bare)
+
+# Add local-podspecs repo to CocoaPods.
 pod repo add local-podspecs "$local_podspecs_dir"
 
 podspecs=(\

@@ -1,4 +1,4 @@
-name: Verify CocoaPods
+name: CocoaPods
 on:
     push:
       branches:
@@ -6,7 +6,7 @@ on:
     pull_request:
 jobs:
   release-cocoapods:
-    name: Trial CocoaPods specs push
+    name: Verify podspecs
     runs-on: macos-13
     permissions:
       contents: read
