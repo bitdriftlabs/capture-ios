@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
     s.static_framework = true
 
     s.dependency 'BitdriftCapture', '= ' + s.version.to_s
-    s.dependency 'CocoaLumberjack', '~> 3.8.0'
+    s.dependency 'CocoaLumberjack', '~> 3.8'
 
     s.source_files = ['Sources/CaptureCocoaLumberjack/**/*.swift']
     s.preserve_paths = ['NOTICE.txt']

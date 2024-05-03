@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
     s.static_framework = true
 
     s.dependency 'BitdriftCapture', '= ' + s.version.to_s
-    s.dependency 'SwiftyBeaver', '~> 2.0.0'
+    s.dependency 'SwiftyBeaver', '~> 2.1'
 
     s.source_files = ['Sources/CaptureSwiftyBeaver/**/*.swift']
     s.preserve_paths = ['NOTICE.txt']
