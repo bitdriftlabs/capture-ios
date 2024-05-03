@@ -6,20 +6,37 @@ import Capture
 #endif
 import os
 
+extension Integration {
+    /// A Capture SDK integration that forwards all logs emitted using the `CocoaLumberjack`
+    /// logging framework to Capture SDK.
+    ///
+    /// - returns: The `CocoaLumberjack` Capture Logger SDK integration.
+    public static func cocoaLumberjack() -> Integration {
+        return Integration { logger in
+            DDLog.add(CaptureDDLogger(logger: logger))
+        }
+    }
+}
+
 /// The wrapper around Capture SDK logger that conforms to `DDLogger` protocol from `CocoaLumberjack`
 /// library and can be used as a drop-in solution for forwarding `CocoaLumberjack` logs to bitdrift
 /// Capture SDK.
-public final class CaptureDDLogger: NSObject, DDLogger {
-    private let osLogger = OSLogger()
+final class CaptureDDLogger: NSObject, DDLogger {
+    private let logger: Logging
 
-    public var logFormatter: DDLogFormatter?
+    var logFormatter: DDLogFormatter?
 
-    public func log(message logMessage: DDLogMessage) {
+    init(logger: Logging) {
+        self.logger = logger
+        super.init()
+    }
+
+    func log(message logMessage: DDLogMessage) {
         guard let level = LogLevel(logMessage.level) else {
             return
         }
 
-        Capture.Logger.log(
+        self.logger.log(
             level: level,
             message: logMessage.message,
             file: logMessage.file,
@@ -28,19 +45,9 @@ public final class CaptureDDLogger: NSObject, DDLogger {
             fields: [
                 "source": "CocoaLumberjack",
                 "thread": logMessage.threadID,
-            ]
+            ],
+            error: nil
         )
-    }
-
-    public func didAdd() {
-        let isCaptureLoggerConfigured = Capture.Logger.sessionID != nil
-        if !isCaptureLoggerConfigured {
-            // swiftlint:disable line_length
-            self.osLogger.log(
-                level: .error,
-                message: "`CaptureDDLogger` added as output target of `DDLogger` before the configuration of Capture SDK. Logs emitted prior to the configuration of the Capture SDK will not be visible to the SDK."
-            )
-        }
     }
 }
 
