@@ -20,7 +20,7 @@ jobs:
         run: |
           if ! git diff --exit-code HEAD~1 HEAD .version; then
             echo "Detected changes..."
-            echo "version=\"$(cat .version)\"" >> $GITHUB_ENV
+            echo "version=\"$(cat .version)\"" >> $GITHUB_OUTPUT
             echo "version_changed=true" >> $GITHUB_OUTPUT
           fi
   # This effectively releases a new Swift Package Manager version

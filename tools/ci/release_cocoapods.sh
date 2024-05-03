@@ -18,9 +18,12 @@ podspecs=(\
 )
 
 for podspec in "${podspecs[@]}"; do
+  # Wait for a while to avoid CocoaPods caching issues.
+  sleep 10
+
   # Make sure that the CocoaPods specs repo is up-to-date.
   # Important, as we push specs sequentially, and one podspec might depend on another.
-  pod cache clean --all 
+  pod cache clean --all
   pod repo update --verbose
 
   publish_podspec "$podspec"

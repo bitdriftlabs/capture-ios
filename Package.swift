@@ -19,14 +19,17 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack.git", from: "3.8.0"),
-        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "2.0.0"),
+        .package(
+            url: "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
+            .upToNextMajor(from: "3.8.0")
+        ),
+        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", .upToNextMajor(from: "2.1.0")),
     ],
     targets: [
         .binaryTarget(
             name: "Capture",
-            url: "https://dl.bitdrift.io/sdk/ios/capture-0.9.116/Capture.zip",
-            checksum: "9893835717921666484d3a9df9de8d5b2f5f91efa5dd89b2313f4094dbfe91b0"
+            url: "https://dl.bitdrift.io/sdk/ios/capture-0.9.117/Capture.zip",
+            checksum: "62a53cb493d236a73e4f8ad6572d37f33223e2e1ebe23a686222451287f35ada"
         ),
         .target(
             name: "CaptureCocoaLumberjack",
@@ -42,6 +45,10 @@ let package = Package(
                 .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
             ]
         ),
+        .target(
+            name: "CaptureMocks",
+            dependencies: ["Capture"]
+        ),
         .testTarget(
             name: "CaptureTests",
             dependencies: ["Capture"],
@@ -49,12 +56,12 @@ let package = Package(
         ),
         .testTarget(
             name: "CaptureSwiftyBeaverTests",
-            dependencies: ["CaptureSwiftyBeaver"],
+            dependencies: ["CaptureSwiftyBeaver", "CaptureMocks"],
             path: "Tests/CaptureSwiftyBeaver"
         ),
         .testTarget(
             name: "CaptureCocoaLumberjackTests",
-            dependencies: ["CaptureCocoaLumberjack"],
+            dependencies: ["CaptureCocoaLumberjack", "CaptureMocks"],
             path: "Tests/CaptureCocoaLumberjack"
         ),
     ]
