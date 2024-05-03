@@ -18,5 +18,5 @@ jobs:
         # See https://github.com/CocoaPods/CocoaPods/issues/11839 for more details.
         # TODO(Augustyniak): Move to Xcode 15 once https://github.com/CocoaLumberjack/CocoaLumberjack/issues/1404 is resolved.
         run: sudo xcode-select --switch /Applications/Xcode_14.3.1.app
-      - name: Push CocoaPods specs to local repo
+      - name: Verify CocoaPods specs
         run: make verify
