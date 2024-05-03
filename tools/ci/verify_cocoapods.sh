@@ -16,10 +16,26 @@ echo "+++ Adding local-podpsecs CocoaPods repo"
 local_podspecs_dir="$(mktemp -d)"
 readonly local_podspecs_dir="$local_podspecs_dir"
 
-# Great git repo for local-podspecs.
-(cd "$local_podspecs_dir" && git init --bare)
+fake_git_remote_dir="$(mktemp -d)"
+readonly fake_git_remote_dir="$fake_git_remote_dir"
 
-# Add local-podspecs repo to CocoaPods.
+# Create a Git repository that will serve as a mock 'remote' for the local-podspecs Git repository.
+pushd "$fake_git_remote_dir"
+    git init --bare
+popd
+
+# Create a Git repository for local-podspecs.
+pushd "$local_podspecs_dir"
+    git init
+    git remote add origin "$fake_git_remote_dir"
+
+    git config receive.denyCurrentBranch warn
+
+    git commit --allow-empty -m "Initial commit"
+    git push origin main
+popd
+
+# Add the local-podspecs repository to CocoaPods.
 pod repo add local-podspecs "$local_podspecs_dir"
 
 podspecs=(\
