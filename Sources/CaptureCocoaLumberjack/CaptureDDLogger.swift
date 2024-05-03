@@ -23,7 +23,6 @@ extension Integration {
 /// Capture SDK.
 final class CaptureDDLogger: NSObject, DDLogger {
     private let logger: Logging
-    private let osLogger = OSLogger()
 
     var logFormatter: DDLogFormatter?
 
