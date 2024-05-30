@@ -12,7 +12,7 @@ final class CaptureSwiftyBeaverIntegrationTests: XCTestCase {
         let logger = MockLogging()
         logger.logExpectation = expectation
 
-        Integration.swiftyBeaver().start(logger)
+        Integration.swiftyBeaver().start(with: logger)
 
         SwiftyBeaver.verbose("Verbose")
         SwiftyBeaver.debug("Debug")
