@@ -12,7 +12,7 @@ final class CaptureCocoaLumberjackIntegrationTests: XCTestCase {
         let logger = MockLogging()
         logger.logExpectation = expectation
 
-        Integration.cocoaLumberjack().start(logger)
+        Integration.cocoaLumberjack().start(with: logger)
 
         DDLogVerbose("Verbose")
         DDLogDebug("Debug")
