@@ -24,8 +24,8 @@ pod cache clean --all
 pod repo update --verbose
 
 podspecs=(\
-  "CaptureCocoaLumberjack" \
   "CaptureSwiftyBeaver" \
+  "CaptureCocoaLumberjack" \
 )
 
 for podspec in "${podspecs[@]}"; do
