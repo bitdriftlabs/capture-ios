@@ -14,6 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up CI
-        run: ./tools/ci/setup_ci.sh
+        run: ./tools/ci/mac_ci_setup.sh
       - name: Verify CocoaPods specs
         run: make verify
