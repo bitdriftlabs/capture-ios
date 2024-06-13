@@ -24,8 +24,7 @@ Pod::Spec.new do |s|
     s.documentation_url = 'https://docs.bitdrift.io'
     s.social_media_url = 'https://twitter.com/bitdriftio'
 
-    s.platform = :ios, '13.0'
-    s.ios.deployment_target = '13.4'
+    s.platform = :ios, '13.4'
     s.swift_versions = ['5.7']
 
     # Pod needs to be built as a static framework as it depends
