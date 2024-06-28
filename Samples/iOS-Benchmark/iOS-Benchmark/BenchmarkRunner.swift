@@ -7,9 +7,9 @@ private let kLogMessage = "50 characters long test message - 0123456789012345"
 final class BenchmarkRunner {
     private(set) var runner: Benchmark.BenchmarkRunner
 
-    init() {
+    init(apiKey: String) {
         let configurationSuite = BenchmarkSuite(name: "Configuration")
-        configurationSuite.register(benchmark: ConfigurationBenchmark())
+        configurationSuite.register(benchmark: ConfigurationBenchmark(apiKey: apiKey))
 
         let suites = [
             configurationSuite,
@@ -31,16 +31,22 @@ final class BenchmarkRunner {
 final class ConfigurationBenchmark: AnyBenchmark {
     private var logger: Logger?
 
+    private let apiKey: String
+
     // MARK: AnyBenchmark
 
     let name = "Configuration"
     let settings: [Benchmark.BenchmarkSetting] = [Iterations(1)]
 
+    init(apiKey: String) {
+        self.apiKey = apiKey
+    }
+
     func setUp() {}
 
     func run(_: inout Benchmark.BenchmarkState) throws {
         Logger.configure(
-            withAPIKey: "123",
+            withAPIKey: self.apiKey,
             sessionStrategy: .fixed()
         )
     }
