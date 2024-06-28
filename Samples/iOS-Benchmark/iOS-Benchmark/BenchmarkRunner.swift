@@ -71,8 +71,16 @@ private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
         )
     }
 
-    suite.benchmark("pause between tests - ignore", settings: [Iterations(1), Quiet(true)])
+    suite.benchmark("PAUSE - IGNORE", settings: [Iterations(1), Quiet(true)])
         { Thread.sleep(forTimeInterval: 1) }
+
+    let fields5 = [
+        "keykeykey0": "valvalval0",
+        "keykeykey2": "valvalval1",
+        "keykeykey3": "valvalval2",
+        "keykeykey4": "valvalval3",
+        "keykeykey5": "valvalval4",
+    ]
 
     suite.benchmark("log with 5 fields", settings: [Iterations(512)]) {
         Logger.log(
@@ -81,39 +89,35 @@ private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
             file: nil,
             line: nil,
             function: nil,
-            fields: [
-                "keykeykey0": "valvalval0",
-                "keykeykey2": "valvalval1",
-                "keykeykey3": "valvalval2",
-                "keykeykey4": "valvalval3",
-                "keykeykey5": "valvalval4",
-            ],
+            fields: fields5,
             error: nil
         )
     }
 
-    suite.benchmark("pause between tests - ignore", settings: [Iterations(1), Quiet(true)])
+    suite.benchmark("PAUSE - IGNORE", settings: [Iterations(1), Quiet(true)])
         { Thread.sleep(forTimeInterval: 1) }
 
     suite.benchmark("log with 10 fields", settings: [Iterations(512)]) {
+        let fields10 = [
+            "keykeykey0": "valvalval0",
+            "keykeykey1": "valvalval1",
+            "keykeykey2": "valvalval2",
+            "keykeykey3": "valvalval3",
+            "keykeykey4": "valvalval4",
+            "keykeykey5": "valvalval5",
+            "keykeykey6": "valvalval6",
+            "keykeykey7": "valvalval7",
+            "keykeykey8": "valvalval8",
+            "keykeykey9": "valvalval9",
+        ]
+
         Logger.log(
             level: .info,
             message: kLogMessage,
             file: nil,
             line: nil,
             function: nil,
-            fields: [
-                "keykeykey0": "valvalval0",
-                "keykeykey1": "valvalval1",
-                "keykeykey2": "valvalval2",
-                "keykeykey3": "valvalval3",
-                "keykeykey4": "valvalval4",
-                "keykeykey5": "valvalval5",
-                "keykeykey6": "valvalval6",
-                "keykeykey7": "valvalval7",
-                "keykeykey8": "valvalval8",
-                "keykeykey9": "valvalval9",
-            ],
+            fields: fields10,
             error: nil
         )
     }
