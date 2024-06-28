@@ -33,7 +33,7 @@ final class ConfigurationBenchmark: AnyBenchmark {
 
     // MARK: AnyBenchmark
 
-    let name = "Warm Configuration"
+    let name = "Configuration"
     let settings: [Benchmark.BenchmarkSetting] = [Iterations(1)]
 
     func setUp() {}
@@ -46,6 +46,8 @@ final class ConfigurationBenchmark: AnyBenchmark {
     }
 
     func tearDown() {
+        // Give the Logger time to fetch the remove configuration and enter it's "normal" operation mode
+        // before moving to benchmarking logging performance.
         Thread.sleep(forTimeInterval: 5.0)
     }
 }
