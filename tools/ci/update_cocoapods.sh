@@ -32,7 +32,3 @@ podspecs=(\
 for podspec in "${podspecs[@]}"; do
   update_podspec "$podspec"
 done
-
-pushd "Samples/iOS-Benchmark/"
-  xcodebuild -resolvePackageDependencies
-popd
