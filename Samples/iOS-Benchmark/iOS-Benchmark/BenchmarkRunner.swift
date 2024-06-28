@@ -59,7 +59,7 @@ final class ConfigurationBenchmark: AnyBenchmark {
 }
 
 private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
-    suite.benchmark("log without fields", settings: [WarmupIterations(10), Iterations(120)]) {
+    suite.benchmark("log without fields", settings: [Iterations(128)]) {
         Logger.log(
             level: .info,
             message: kLogMessage,
@@ -71,7 +71,7 @@ private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
         )
     }
 
-    suite.benchmark("log with 5 fields", settings: [WarmupIterations(10), Iterations(120)]) {
+    suite.benchmark("log with 5 fields", settings: [Iterations(128)]) {
         Logger.log(
             level: .info,
             message: kLogMessage,
@@ -89,7 +89,7 @@ private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
         )
     }
 
-    suite.benchmark("log with 10 fields", settings: [WarmupIterations(10), Iterations(120)]) {
+    suite.benchmark("log with 10 fields", settings: [Iterations(128)]) {
         Logger.log(
             level: .info,
             message: kLogMessage,
