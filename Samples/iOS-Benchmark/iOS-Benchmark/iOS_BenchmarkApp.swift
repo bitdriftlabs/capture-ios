@@ -1,6 +1,6 @@
-import SwiftUI
-import Capture
 import Benchmark
+import Capture
+import SwiftUI
 
 @main
 struct iOS_BenchmarkApp: App {

@@ -25,7 +25,7 @@ extension BenchmarkState {
 
     var isRunningBenchmarkEnabled: Bool {
         switch self {
-        case .initial(let apiKey) where !apiKey.isEmpty:
+        case let .initial(apiKey) where !apiKey.isEmpty:
             return true
         default:
             return false
@@ -34,7 +34,7 @@ extension BenchmarkState {
 
     func createBenchmark() -> BenchmarkRunner? {
         switch self {
-        case .initial(let apiKey) where !apiKey.isEmpty:
+        case let .initial(apiKey) where !apiKey.isEmpty:
             return BenchmarkRunner(apiKey: apiKey)
         default:
             return nil
@@ -47,8 +47,8 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Button(state.title) {
-                guard state.isRunningBenchmarkEnabled else {
+            Button(self.state.title) {
+                guard self.state.isRunningBenchmarkEnabled else {
                     return
                 }
 
@@ -56,11 +56,11 @@ struct ContentView: View {
                     return print("unexpected state")
                 }
 
-                state = .running
+                self.state = .running
                 benchmark.run()
-                state = .completed
+                self.state = .completed
             }
-            .disabled(!state.isRunningBenchmarkEnabled)
+            .disabled(!self.state.isRunningBenchmarkEnabled)
         }
         .padding()
     }

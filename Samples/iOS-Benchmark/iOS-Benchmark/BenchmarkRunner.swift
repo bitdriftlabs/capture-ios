@@ -1,6 +1,6 @@
-import Foundation
 import Benchmark
 import Capture
+import Foundation
 
 private let kLogMessage = "50 characters long test message - 0123456789012345"
 
@@ -59,7 +59,7 @@ final class ConfigurationBenchmark: AnyBenchmark {
 }
 
 private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
-    suite.benchmark("log without fields", settings: [Iterations(128)]) {
+    suite.benchmark("log without fields", settings: [Iterations(512)]) {
         Logger.log(
             level: .info,
             message: kLogMessage,
@@ -71,7 +71,10 @@ private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
         )
     }
 
-    suite.benchmark("log with 5 fields", settings: [Iterations(128)]) {
+    suite.benchmark("pause between tests - ignore", settings: [Iterations(1), Quiet(true)])
+        { Thread.sleep(forTimeInterval: 1) }
+
+    suite.benchmark("log with 5 fields", settings: [Iterations(512)]) {
         Logger.log(
             level: .info,
             message: kLogMessage,
@@ -89,7 +92,10 @@ private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
         )
     }
 
-    suite.benchmark("log with 10 fields", settings: [Iterations(128)]) {
+    suite.benchmark("pause between tests - ignore", settings: [Iterations(1), Quiet(true)])
+        { Thread.sleep(forTimeInterval: 1) }
+
+    suite.benchmark("log with 10 fields", settings: [Iterations(512)]) {
         Logger.log(
             level: .info,
             message: kLogMessage,
