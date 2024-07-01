@@ -7,6 +7,7 @@
 ![plot](/Resources/Assets/ios-benchmark-app-setup-01.png)
 1. Go to the `ContentView.swift` file and set `kApiKey` to your bitdrift Capture API Key.
 1. Right-click the `Capture` package dependency in the Project Navigator view and select the "Update Package" option to ensure that the latest version of Capture the SDK is used.
+ <img src="/Resources/Assets/ios-benchmark-app-setup-02.png" width="256" height="455">
 ![plot](/Resources/Assets/ios-benchmark-app-setup-02.png)
 1. Go to the Edit Scheme view (`⌘` + `<`) and make sure that the "Run" scheme uses the "Release" build configuration.
 ![plot](/Resources/Assets/ios-benchmark-app-setup-03.png)
