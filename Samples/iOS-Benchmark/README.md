@@ -1,6 +1,6 @@
 # iOS Benchmark App
 
-# Set up
+# Setup
 
 1. Open the `iOS-Benchmark.xcodeproj` project in Xcode.
 1. Go to project settings > "Signing & Capabilities" and specify your "Team".
@@ -21,7 +21,7 @@
     <img src="/Resources/Assets/ios-benchmark-app-setup-04.png" height="300">
     </p>
 
-# Run
+# Run Benchmark
 
 1. Run the app (`⌘` + `r`).
 1. Tap the "Run benchmark!" button.
