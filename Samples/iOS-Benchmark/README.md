@@ -17,7 +17,7 @@
 
 1. Run the app (`⌘` + `r`).
 2. Tap the "Run benchmark!" button.
-![plot](/Resources/Assets/ios-benchmark-app-setup-05.png)
+![plot](/Resources/Assets/ios-benchmark-app-setup-05.png | height=200)
 3. The benchmark results should appear in the Xcode console. An example can be found below.
 
 ## Example Results
