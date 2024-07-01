@@ -14,23 +14,24 @@ you are running benchmark using the latest version of the SDK.
 1. Go to Run Destinations view (`⌃` + `Shift` + `0`) and select a real device.
 ![plot](/Resources/Assets/ios-benchmark-app-setup-04.png)
 
-
-# Running
+# Run
 
 1. Run the app (`⌘` + `r`).
 2. Tap "Run benchmark!" button.
 ![plot](/Resources/Assets/ios-benchmark-app-setup-05.png)
 3. The benchmark results should appear in the Xcode console. An example can be find below.
 
-The benchmark results using iPhone 15 Pro Max (512GB) and 0.11.3 version of the Capture SDK:
+## Example Results
+
+The Xcode console benchmark results using iPhone 15 Pro Max (512GB) and 0.11.3 version of the Capture SDK:
 
 ```
 name                        time              std        iterations
 -------------------------------------------------------------------
-Configuration.Configuration    9543709.000 ns ±   0.00 %          1
-Logging.log without fields         291.000 ns ± 272.46 %        512
-Logging.PAUSE - IGNORE      1001011667.000 ns ±   0.00 %          1
-Logging.log with 5 fields         4375.000 ns ±  25.13 %        512
-Logging.PAUSE - IGNORE      1000493541.000 ns ±   0.00 %          1
-Logging.log with 10 fields       15062.500 ns ±  67.88 %        512
+Configuration.Configuration   18926375.000 ns ±   0.00 %          1
+Logging.log without fields        2000.000 ns ± 120.70 %        512
+Logging.PAUSE - IGNORE      1001038000.000 ns ±   0.00 %          1
+Logging.log with 5 fields        20792.000 ns ±  36.76 %        512
+Logging.PAUSE - IGNORE      1001044583.000 ns ±   0.00 %          1
+Logging.log with 10 fields       32895.500 ns ±  35.59 %        512
 ```
