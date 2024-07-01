@@ -3,9 +3,15 @@
 # Set up
 
 1. Open the `iOS-Benchmark.xcodeproj` project in Xcode.
-1. Go to project settings > "Signing & Capabilities" and specify your "Team". <img src="/Resources/Assets/ios-benchmark-app-setup-01.png" height="300">
+1. Go to project settings > "Signing & Capabilities" and specify your "Team".
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-setup-01.png" height="300">
+    </p>
 1. Go to the `ContentView.swift` file and set `kApiKey` to your bitdrift Capture API Key.
-1. Right-click the `Capture` package dependency in the Project Navigator view and select the "Update Package" option to ensure that the latest version of Capture the SDK is used. <img src="/Resources/Assets/ios-benchmark-app-setup-02.png" height="300">
+1. Right-click the `Capture` package dependency in the Project Navigator view and select the "Update Package" option to ensure that the latest version of Capture the SDK is used.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-setup-02.png" height="300">
+    </p>
 1. Go to the Edit Scheme view (`⌘` + `<`) and make sure that the "Run" scheme uses the "Release" build configuration. 
     <p align="center">
     <img src="/Resources/Assets/ios-benchmark-app-setup-03.png" height="300">
@@ -18,7 +24,10 @@
 # Run
 
 1. Run the app (`⌘` + `r`).
-1. Tap the "Run benchmark!" button. <img src="/Resources/Assets/ios-benchmark-app-setup-05.png" height="300">
+1. Tap the "Run benchmark!" button.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-setup-05.png" height="300">
+    </p>
 1. The benchmark results should appear in the Xcode console. An example can be found below.
 
 ## Example Results
