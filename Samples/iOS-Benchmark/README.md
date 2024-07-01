@@ -5,7 +5,7 @@
 1. Open the `iOS-Benchmark.xcodeproj` project in Xcode.
 1. Go to project settings > "Signing & Capabilities" and specify your "Team".
     <p align="center">
-    <img src="/Resources/Assets/ios-benchmark-app-setup-01.png" height="300">
+    <img src="/Resources/Assets/ios-benchmark-app-setup-01.png" height="200">
     </p>
 1. Go to the `ContentView.swift` file and set `kApiKey` to your bitdrift Capture API Key.
 1. Right-click the `Capture` package dependency in the Project Navigator view and select the "Update Package" option to ensure that the latest version of Capture the SDK is used.
