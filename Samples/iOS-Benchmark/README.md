@@ -8,14 +8,18 @@
 1. Go to `ContentView.swift` file in the opened Xcode project and set `kApiKey` to your bitdrift Capture API Key.
 1. Right click `Capture` Package Dependency in Project Navigator view and select "Update Package" option to make sure that
 you are running benchmark using the latest version of the SDK.
+![plot](/Resources/Assets/ios-benchmark-app-setup-02.png)
 1. Go to Edit Scheme view (`⌘` + `<`) and make sure that "Run" scheme uses "Release" build configuration.
+![plot](/Resources/Assets/ios-benchmark-app-setup-03.png)
 1. Go to Run Destinations view (`⌃` + `Shift` + `0`) and select a real device.
+![plot](/Resources/Assets/ios-benchmark-app-setup-04.png)
 
 
 # Running
 
 1. Run the app (`⌘` + `r`).
-2. Tap "Run benchmark!" button. 
+2. Tap "Run benchmark!" button.
+![plot](/Resources/Assets/ios-benchmark-app-setup-05.png)
 3. The benchmark results should appear in the Xcode console. An example can be find below.
 
 The benchmark results using iPhone 15 Pro Max (512GB) and 0.11.3 version of the Capture SDK:
