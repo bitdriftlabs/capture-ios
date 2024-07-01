@@ -2,28 +2,27 @@
 
 # Set up
 
-1. Launch `iOS-Benchmark.xcodeproj`.
+1. Open the `iOS-Benchmark.xcodeproj` project in Xcode.
 1. Go to project settings > "Signing & Capabilities" and specify your "Team".
 ![plot](/Resources/Assets/ios-benchmark-app-setup-01.png)
-1. Go to `ContentView.swift` file in the opened Xcode project and set `kApiKey` to your bitdrift Capture API Key.
-1. Right click `Capture` Package Dependency in Project Navigator view and select "Update Package" option to make sure that
-you are running benchmark using the latest version of the SDK.
+1. Go to the `ContentView.swift` file and set `kApiKey` to your bitdrift Capture API Key.
+1. Right-click the `Capture` package dependency in the Project Navigator view and select the "Update Package" option to ensure that the latest version of Capture the SDK is used.
 ![plot](/Resources/Assets/ios-benchmark-app-setup-02.png)
-1. Go to Edit Scheme view (`⌘` + `<`) and make sure that "Run" scheme uses "Release" build configuration.
+1. Go to the Edit Scheme view (`⌘` + `<`) and make sure that the "Run" scheme uses the "Release" build configuration.
 ![plot](/Resources/Assets/ios-benchmark-app-setup-03.png)
-1. Go to Run Destinations view (`⌃` + `Shift` + `0`) and select a real device.
+1. Go to the Run Destinations view (`⌃` + `Shift` + `0`) and select a real device.
 ![plot](/Resources/Assets/ios-benchmark-app-setup-04.png)
 
 # Run
 
 1. Run the app (`⌘` + `r`).
-2. Tap "Run benchmark!" button.
+2. Tap the "Run benchmark!" button.
 ![plot](/Resources/Assets/ios-benchmark-app-setup-05.png)
-3. The benchmark results should appear in the Xcode console. An example can be find below.
+3. The benchmark results should appear in the Xcode console. An example can be found below.
 
 ## Example Results
 
-The Xcode console benchmark results using iPhone 15 Pro Max (512GB) and 0.11.3 version of the Capture SDK:
+The Xcode console benchmark results using an iPhone 15 Pro Max (512GB) and version 0.11.3 of the Capture SDK:
 
 ```
 name                        time              std        iterations
