@@ -33,7 +33,7 @@
     </p>
 1. The benchmark results should appear in the Xcode console. An example can be found below.
 
-## Example Results
+### Example Results
 
 The Xcode console benchmark results using an iPhone 15 Pro Max (512GB) and version 0.11.3 of the Capture SDK:
 
