@@ -13,7 +13,7 @@ final class BenchmarkRunner {
 
         let suites = [
             configurationSuite,
-            kLogBenchmark,
+            makeLoggingBenchmark(),
         ]
 
         self.runner = Benchmark.BenchmarkRunner(
@@ -58,67 +58,69 @@ final class ConfigurationBenchmark: AnyBenchmark {
     }
 }
 
-private let kLogBenchmark = BenchmarkSuite(name: "Logging") { suite in
-    suite.benchmark("log without fields", settings: [Iterations(512)]) {
-        Logger.log(
-            level: .info,
-            message: kLogMessage,
-            file: nil,
-            line: nil,
-            function: nil,
-            fields: nil,
-            error: nil
-        )
-    }
+private func makeLoggingBenchmark() -> BenchmarkSuite {
+    BenchmarkSuite(name: "Logging") { suite in
+        suite.benchmark("log without fields", settings: [Iterations(512)]) {
+            Logger.log(
+                level: .info,
+                message: kLogMessage,
+                file: nil,
+                line: nil,
+                function: nil,
+                fields: nil,
+                error: nil
+            )
+        }
 
-    suite.benchmark("PAUSE - IGNORE", settings: [Iterations(1), Quiet(true)])
-        { Thread.sleep(forTimeInterval: 1) }
+        suite.benchmark("PAUSE - IGNORE", settings: [Iterations(1), Quiet(true)])
+            { Thread.sleep(forTimeInterval: 1) }
 
-    let fields5 = [
-        "keykeykey0": "valvalval0",
-        "keykeykey2": "valvalval1",
-        "keykeykey3": "valvalval2",
-        "keykeykey4": "valvalval3",
-        "keykeykey5": "valvalval4",
-    ]
-
-    suite.benchmark("log with 5 fields", settings: [Iterations(512)]) {
-        Logger.log(
-            level: .info,
-            message: kLogMessage,
-            file: nil,
-            line: nil,
-            function: nil,
-            fields: fields5,
-            error: nil
-        )
-    }
-
-    suite.benchmark("PAUSE - IGNORE", settings: [Iterations(1), Quiet(true)])
-        { Thread.sleep(forTimeInterval: 1) }
-
-    suite.benchmark("log with 10 fields", settings: [Iterations(512)]) {
-        let fields10 = [
+        let fields5 = [
             "keykeykey0": "valvalval0",
-            "keykeykey1": "valvalval1",
-            "keykeykey2": "valvalval2",
-            "keykeykey3": "valvalval3",
-            "keykeykey4": "valvalval4",
-            "keykeykey5": "valvalval5",
-            "keykeykey6": "valvalval6",
-            "keykeykey7": "valvalval7",
-            "keykeykey8": "valvalval8",
-            "keykeykey9": "valvalval9",
+            "keykeykey2": "valvalval1",
+            "keykeykey3": "valvalval2",
+            "keykeykey4": "valvalval3",
+            "keykeykey5": "valvalval4",
         ]
 
-        Logger.log(
-            level: .info,
-            message: kLogMessage,
-            file: nil,
-            line: nil,
-            function: nil,
-            fields: fields10,
-            error: nil
-        )
+        suite.benchmark("log with 5 fields", settings: [Iterations(512)]) {
+            Logger.log(
+                level: .info,
+                message: kLogMessage,
+                file: nil,
+                line: nil,
+                function: nil,
+                fields: fields5,
+                error: nil
+            )
+        }
+
+        suite.benchmark("PAUSE - IGNORE", settings: [Iterations(1), Quiet(true)])
+            { Thread.sleep(forTimeInterval: 1) }
+
+        suite.benchmark("log with 10 fields", settings: [Iterations(512)]) {
+            let fields10 = [
+                "keykeykey0": "valvalval0",
+                "keykeykey1": "valvalval1",
+                "keykeykey2": "valvalval2",
+                "keykeykey3": "valvalval3",
+                "keykeykey4": "valvalval4",
+                "keykeykey5": "valvalval5",
+                "keykeykey6": "valvalval6",
+                "keykeykey7": "valvalval7",
+                "keykeykey8": "valvalval8",
+                "keykeykey9": "valvalval9",
+            ]
+
+            Logger.log(
+                level: .info,
+                message: kLogMessage,
+                file: nil,
+                line: nil,
+                function: nil,
+                fields: fields10,
+                error: nil
+            )
+        }
     }
 }
