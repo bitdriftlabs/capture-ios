@@ -77,9 +77,8 @@ Logging.log with 10 fields       32895.500 ns ±  35.59 %        512
     <p align="center">
     <img src="/Resources/Assets/ios-benchmark-app-memory-06.png" height="300">
     </p>
-1. The value in the "Growth" columns of "Generation B" row is a good approximation of the amount of memory the 
-SDK consumes. This value may be lower in the case of real apps as they may already load some of the objects 
-used by the SDK into the memory.
+1. The value in the 'Growth' column of the 'Generation B' row is a good approximation of the amount of memory the SDK consumes.
+This value may be lower in the case of real apps, as they may already load some of the objects used by the SDK into memory.
     <p align="center">
     <img src="/Resources/Assets/ios-benchmark-app-memory-07.png" height="300">
     </p>
