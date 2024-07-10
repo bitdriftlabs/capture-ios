@@ -95,3 +95,4 @@ This value may be lower in the case of real apps, as they may already load some 
     <p align="center">
     <img src="/Resources/Assets/ios-benchmark-app-memory-08.png" height="300">
     </p>
+
