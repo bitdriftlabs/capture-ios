@@ -2,6 +2,9 @@
 
 ## Setup
 
+[!IMPORTANT]
+A bitdrift Capture API key is needed to perform meaningful performance measurements. Contact info@bitdrift.io to get an API Key.
+
 1. Open the `iOS-Benchmark.xcodeproj` project in Xcode.
 1. Go to project settings > "Signing & Capabilities" and specify your "Team".
     <p align="center">
