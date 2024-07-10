@@ -1,6 +1,6 @@
 # iOS Benchmark App
 
-# Setup
+## Setup
 
 1. Open the `iOS-Benchmark.xcodeproj` project in Xcode.
 1. Go to project settings > "Signing & Capabilities" and specify your "Team".
@@ -21,8 +21,11 @@
     <img src="/Resources/Assets/ios-benchmark-app-setup-04.png" height="300">
     </p>
 
-# Run Benchmark
+## Performance Measurements
 
+### Time Benchmarks
+
+1. Open `iOS-Benchmark.xcodeproj` project in Xcode.
 1. Run the app (`⌘` + `r`).
 1. Tap the "Run benchmark!" button.
     <p align="center">
@@ -44,3 +47,43 @@ Logging.log with 5 fields        20792.000 ns ±  36.76 %        512
 Logging.PAUSE - IGNORE      1001044583.000 ns ±   0.00 %          1
 Logging.log with 10 fields       32895.500 ns ±  35.59 %        512
 ```
+
+### Memory Profiling
+
+1. Open `iOS-Benchmark.xcodeproj` project in Xcode.
+1. Launch Xcode profiler (`⌘` + `i`).
+1. Select the "Allocations" profiling template and click "Choose".
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-01.png" height="300">
+    </p>
+1. Click record button. This should launch the iOS Benchmark App in the selected simulator/real device.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-02.png" height="300">
+    </p>
+1. Click "Mark generation" in Xcode Instruments to capture a baseline for memory usage measurements.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-03.png" height="300">
+    </p>
+1. Go to the launched "iOS Benchmark App", tap "Run benchmark!" button. Wait for the benchmark to complete.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-04.png" height="300">
+    </p>
+1. Go back to Xcode Instruments.
+1. Click "Mark Generation".
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-05.png" height="300">
+    </p>
+1. There should be "Generation A" and "Generation B" generations displayed in the UI.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-06.png" height="300">
+    </p>
+1. The value in the "Growth" columns of "Generation B" row is a good approximation of the amount of memory the 
+SDK consumes. This value may be lower in the case of real apps as they may already load some of the objects 
+used by the SDK into the memory.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-07.png" height="300">
+    </p>
+1. Expand "Generation B" to see what the SDK uses the memory for. The symbols should be there.
+    <p align="center">
+    <img src="/Resources/Assets/ios-benchmark-app-memory-08.png" height="300">
+    </p>
