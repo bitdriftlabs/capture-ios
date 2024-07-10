@@ -1,13 +1,13 @@
 # iOS Benchmark App
 
+> [!IMPORTANT]
+> A bitdrift Capture API key is needed to perform meaningful performance measurements. Contact info@bitdrift.io to get an API Key.
+
 ## Table of Contents
 1. [Setup](#setup)
 2. [Performance Measurements](#performance-measurements)
     1. [Time Benchmarks](#time-benchmarks)
     2. [Memory Profiling](#memory-profiling)
-
-> [!IMPORTANT]
-> A bitdrift Capture API key is needed to perform meaningful performance measurements. Contact info@bitdrift.io to get an API Key.
 
 ## Setup
 
