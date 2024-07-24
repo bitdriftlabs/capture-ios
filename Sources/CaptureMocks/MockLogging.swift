@@ -38,6 +38,8 @@ public final class MockLogging: Logging {
 
     public let sessionURL = "fooURL"
 
+    public let deviceID = "deviceID"
+
     public func startNewSession() {}
 
     public func addField(withKey _: String, value _: Encodable & Sendable) {}
