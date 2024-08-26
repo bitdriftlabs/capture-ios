@@ -47,4 +47,15 @@ public final class MockLogging: Logging {
     public func removeField(withKey _: String) {}
 
     public func createTemporaryDeviceCode(completion _: @escaping (Result<String, Error>) -> Void) {}
+
+    public func startSpan(
+        name: String,
+        level: LogLevel,
+        file: String?,
+        line: Int?,
+        function: String?,
+        fields: Fields?
+    ) -> Span {
+        fatalError("TODO: needs to be implemented")
+    }
 }
