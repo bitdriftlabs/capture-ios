@@ -49,12 +49,12 @@ public final class MockLogging: Logging {
     public func createTemporaryDeviceCode(completion _: @escaping (Result<String, Error>) -> Void) {}
 
     public func startSpan(
-        name: String,
-        level: LogLevel,
-        file: String?,
-        line: Int?,
-        function: String?,
-        fields: Fields?
+        name _: String,
+        level _: LogLevel,
+        file _: String?,
+        line _: Int?,
+        function _: String?,
+        fields _: Fields?
     ) -> Span {
         fatalError("TODO: needs to be implemented")
     }
