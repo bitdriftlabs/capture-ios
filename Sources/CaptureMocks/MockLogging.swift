@@ -58,4 +58,6 @@ public final class MockLogging: Logging {
     ) -> Span {
         fatalError("TODO: needs to be implemented")
     }
+
+    public func logAppLaunchTTI(_: TimeInterval) {}
 }
