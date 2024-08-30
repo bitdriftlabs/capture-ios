@@ -59,5 +59,5 @@ public final class MockLogging: Logging {
         fatalError("TODO: needs to be implemented")
     }
 
-    public func logAppLaunchTTI(_ duration: TimeInterval) {}
+    public func logAppLaunchTTI(_: TimeInterval) {}
 }
