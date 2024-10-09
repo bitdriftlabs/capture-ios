@@ -45,7 +45,7 @@ final class ConfigurationBenchmark: AnyBenchmark {
     func setUp() {}
 
     func run(_: inout Benchmark.BenchmarkState) throws {
-        Logger.configure(
+        Logger.start(
             withAPIKey: self.apiKey,
             sessionStrategy: .fixed()
         )
