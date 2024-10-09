@@ -11,7 +11,7 @@ The following code demonstrates an example setup of Capture SDK in your app:
 ```swift
 import Capture
 
-Logger.configure(
+Logger.start(
   withAPIKey: "<your-api-key>",
   sessionStrategy: .activityBased()
 )
