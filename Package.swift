@@ -17,6 +17,10 @@ let package = Package(
             name: "CaptureSwiftyBeaver",
             targets: ["CaptureSwiftyBeaver"]
         ),
+        .library(
+            name: "CaptureApollo",
+            targets: ["CaptureApollo"]
+        ),
     ],
     dependencies: [
         .package(
@@ -24,6 +28,7 @@ let package = Package(
             .upToNextMajor(from: "3.8.0")
         ),
         .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", .upToNextMajor(from: "2.1.0")),
+        .package(url: "https://github.com/apollographql/apollo-ios", .upToNextMajor(from: "1.15.3")),
     ],
     targets: [
         .binaryTarget(
@@ -43,6 +48,13 @@ let package = Package(
             dependencies: [
                 "Capture",
                 .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
+            ]
+        ),
+        .target(
+            name: "CaptureApollo",
+            dependencies: [
+                "Capture",
+                .product(name: "CaptureApollo", package: "Apollo"),
             ]
         ),
         .target(
