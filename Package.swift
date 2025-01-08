@@ -54,7 +54,7 @@ let package = Package(
             name: "CaptureApollo",
             dependencies: [
                 "Capture",
-                .product(name: "apollo-ios", package: "apollo-ios"),
+                .product(name: "Apollo", package: "apollo-ios"),
             ]
         ),
         .target(
