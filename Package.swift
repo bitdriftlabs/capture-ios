@@ -28,7 +28,7 @@ let package = Package(
             .upToNextMajor(from: "3.8.0")
         ),
         .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", .upToNextMajor(from: "2.1.0")),
-        .package(url: "https://github.com/apollographql/apollo-ios", .upToNextMajor(from: "1.15.3")),
+        .package(url: "https://github.com/apollographql/apollo-ios.git", .upToNextMajor(from: "1.15.3")),
     ],
     targets: [
         .binaryTarget(
