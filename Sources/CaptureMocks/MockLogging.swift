@@ -60,4 +60,6 @@ public final class MockLogging: Logging {
     }
 
     public func logAppLaunchTTI(_: TimeInterval) {}
+
+    public func logScreenView(screenName _: String) {}
 }
