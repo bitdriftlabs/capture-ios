@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.authors = {
       'Bitdrift, Inc.' => 'info@bitdrift.io',
       'Rafal Augustyniak' => 'rafal@bitdrift.io',
-      'Miguel Angel Juárez López' => 'miguel@bitdrift.io',
+      'Miguel Angel Juarez Lopez' => 'miguel@bitdrift.io',
     }
 
     s.documentation_url = 'https://docs.bitdrift.io'
@@ -23,8 +23,8 @@ Pod::Spec.new do |s|
     s.platform = :ios, '12.0'
     s.swift_versions = ['5.7']
     s.frameworks = [
-      'Network', 
-      'UIKit', 
+      'Network',
+      'UIKit',
       'CoreTelephony'
     ]
 
