@@ -28,7 +28,7 @@ until { curl -s "https://cdn.cocoapods.org/all_pods_versions_0_7_9.txt" | gunzip
     exit 1
   fi
 
-  echo "BitdriftCapture $VERSION not available in the CocoaPods specs repository yet. Sleeping for 10 seconds."
+  echo "BitdriftCapture $VERSION not available in the CocoaPods specs repository yet. Sleeping for 1 minute."
   sleep 60
 done
 
