@@ -54,7 +54,9 @@ public final class MockLogging: Logging {
         file _: String?,
         line _: Int?,
         function _: String?,
-        fields _: Fields?
+        fields _: Fields?,
+        startTimeInterval _: TimeInterval?,
+        parentSpanID _: UUID?
     ) -> Span {
         fatalError("TODO: needs to be implemented")
     }
