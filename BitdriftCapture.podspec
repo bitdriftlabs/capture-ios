@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     s.module_name = 'Capture'
 
     s.platform = :ios, '15.0'
-    s.swift_versions = ['6.0.3']
+    s.swift_versions = ['6.0.0']
     s.frameworks = [
       'Network',
       'UIKit',

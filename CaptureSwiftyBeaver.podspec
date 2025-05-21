@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     s.social_media_url = 'https://twitter.com/bitdriftio'
 
     s.platform = :ios, '15.0'
-    s.swift_versions = ['6.0.3']
+    s.swift_versions = ['6.0.0']
 
     # Pod needs to be built as a static framework as it depends
     # on a static Capture framework (via BitdriftCapture pod)
