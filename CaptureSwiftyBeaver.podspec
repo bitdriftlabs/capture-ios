@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
     s.name = 'CaptureSwiftyBeaver'
-    s.version = '0.17.15'
+    s.version = '0.17.16'
     s.summary = "Official Capture integration for SwiftyBeaver."
 
     s.homepage = 'https://bitdrift.io'
@@ -24,8 +24,8 @@ Pod::Spec.new do |s|
     s.documentation_url = 'https://docs.bitdrift.io'
     s.social_media_url = 'https://twitter.com/bitdriftio'
 
-    s.platform = :ios, '13.4'
-    s.swift_versions = ['5.7']
+    s.platform = :ios, '15.0'
+    s.swift_versions = ['6.0.0']
 
     # Pod needs to be built as a static framework as it depends
     # on a static Capture framework (via BitdriftCapture pod)

@@ -1,9 +1,9 @@
-// swift-tools-version:5.7
+// swift-tools-version:6.0.0
 import PackageDescription
 
 let package = Package(
     name: "Capture",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "Capture",
@@ -28,8 +28,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Capture",
-            url: "https://dl.bitdrift.io/sdk/ios/capture-0.17.15/Capture.zip",
-            checksum: "be21c2b3e7ed13551703d3c7c5c38c79d1e1d01cbf1c963c7d265f188c2b5194"
+            url: "https://dl.bitdrift.io/sdk/ios/capture-0.17.16/Capture.zip",
+            checksum: "dc289c61deb801da802a955d0b478b84f9c3472c91e18b2f137e822414bc46ba"
         ),
         .target(
             name: "CaptureCocoaLumberjack",
