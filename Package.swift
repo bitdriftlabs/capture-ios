@@ -1,9 +1,9 @@
-// swift-tools-version:5.7
+// swift-tools-version:6.0.3
 import PackageDescription
 
 let package = Package(
     name: "Capture",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "Capture",
