@@ -22,6 +22,7 @@ jobs:
 
   verify-cocoapods-release:
     name: Verify primary spec is available
+    runs-on: ubuntu-latest
     permissions:
       contents: read
     needs: release-cocoapods
