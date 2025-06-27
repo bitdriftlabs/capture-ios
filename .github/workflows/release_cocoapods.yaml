@@ -33,7 +33,8 @@ jobs:
         uses: nick-fields/retry@v3
         id: retry
         with:
-          timeout_minutes: 10
+          timeout_seconds: 30
+          retry_wait_seconds: 600
           max_attempts: 4
           command: ./tools/ci/verify_release_cocoapods.sh
 
