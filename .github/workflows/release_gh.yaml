@@ -16,7 +16,6 @@ jobs:
   release-gh:
     name: Create GitHub Release
     runs-on: ubuntu-latest
-    environment: release
     permissions:
       contents: write
     steps:
