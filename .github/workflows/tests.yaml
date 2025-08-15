@@ -10,7 +10,7 @@ concurrency:
     cancel-in-progress: true
 jobs:
   tests:
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
       - name: Set up CI
