@@ -5,7 +5,7 @@ on:
 jobs:
   release-cocoapods:
     name: Publish CocoaPods specs
-    runs-on: macos-15
+    runs-on: macos-14
     permissions:
       contents: read
     steps:
@@ -39,7 +39,7 @@ jobs:
 
   release-cocoapods-dep-specs:
     name: Publish integration CocoaPods specs
-    runs-on: macos-15
+    runs-on: macos-14
     permissions:
       contents: read
     needs: verify-cocoapods-release
