@@ -1,4 +1,4 @@
-Capture
-Copyright BITDRIFT, INC.
+capture-ios
+Copyright Bitdrift, Inc.
 
-Licensed under BITDRIFT SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT. See LICENSE.txt for terms.
+Licensed under PolyForm Shield. See LICENSE for terms.
