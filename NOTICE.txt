@@ -1,4 +1,4 @@
-capture-sdk
+capture-ios
 Copyright Bitdrift, Inc.
 
 Licensed under PolyForm Shield. See LICENSE for terms.
