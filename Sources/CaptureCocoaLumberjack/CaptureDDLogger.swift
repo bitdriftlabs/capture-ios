@@ -12,7 +12,7 @@ extension Integration {
     ///
     /// - returns: The `CocoaLumberjack` Capture Logger SDK integration.
     public static func cocoaLumberjack() -> Integration {
-        return Integration { logger, _ in
+        return Integration { logger, _, _ in
             DDLog.add(CaptureDDLogger(logger: logger))
         }
     }

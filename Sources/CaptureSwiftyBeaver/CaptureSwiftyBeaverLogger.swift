@@ -7,7 +7,7 @@ extension Integration {
     ///
     /// - returns: The `SwiftyBeaver` Capture Logger SDK integration.
     public static func swiftyBeaver() -> Integration {
-        return Integration { logger, _ in
+        return Integration { logger, _, _ in
             SwiftyBeaver.addDestination(
                 CaptureSwiftyBeaverLogger(logger: logger)
             )
