@@ -66,4 +66,8 @@ public final class MockLogging: Logging {
     public func logScreenView(screenName _: String) {}
 
     public func setSleepMode(_: Capture.SleepMode) {}
+
+    public func setFeatureFlag(withFlag _: String, variant _: String?) {}
+
+    public func removeFeatureFlag(withFlag _: String) {}
 }
