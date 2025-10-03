@@ -30,4 +30,4 @@ curl -OL "https://download.swift.org/swift-5.9.2-release/ubuntu2204/swift-5.9.2-
 tar xf "$swift_archive_name.tar.gz"
 
 echo "PATH=$(pwd):$(pwd)/$swift_archive_name/usr/bin:$PATH" >> "$GITHUB_ENV"
-echo "LD_LIBRARY_PATH=$(pwd)/$swift_archive_name/usr/lib" >> "@GITHUB_ENV"
+echo "LD_LIBRARY_PATH=$(pwd)/$swift_archive_name/usr/lib" >> "$GITHUB_ENV"
