@@ -28,8 +28,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Capture",
-            url: "https://dl.bitdrift.io/sdk/ios/capture-0.18.10/Capture.zip",
-            checksum: "9bff3d803efe5ccccd2175d34ac3a5410502755a9ff859ad27ee3a822d3c88d6"
+            url: "https://dl.bitdrift.io/sdk/ios/capture-0.18.11/Capture.zip",
+            checksum: "173f539fbf43e25c41c8be096c01e337ee44d2f0d1d4440a4d04c06211fc844e"
         ),
         .target(
             name: "CaptureCocoaLumberjack",
