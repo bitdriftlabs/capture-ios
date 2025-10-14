@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'CaptureCocoaLumberjack'
-    s.version = '0.18.10'
+    s.version = '0.18.11'
     s.summary = "Official Capture integration for CocoaLumberjack."
 
     s.homepage = 'https://bitdrift.io'
