@@ -72,4 +72,7 @@ public final class MockLogging: Logging {
     public func removeFeatureFlag(withName _: String) {}
 
     public func setFeatureFlags(_: [FeatureFlag]) {}
+
+    public func clearFeatureFlags() {}
+
 }
