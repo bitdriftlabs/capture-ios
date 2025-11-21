@@ -15,7 +15,7 @@ jobs:
         run: ./tools/ci/mac_ci_setup.sh
       - name: Publish primary CocoaPods spec
         # succeed if already pushed
-        run: pod trunk push BitdriftCapture.podspec --verbose || ./tools/ci/verify_release_cocoapods.sh
+        run: ./tools/ci/verify_release_cocoapods.sh BitdriftCapture || pod trunk push BitdriftCapture.podspec --verbose
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
 
@@ -35,7 +35,7 @@ jobs:
           timeout_seconds: 30
           retry_wait_seconds: 600
           max_attempts: 4
-          command: ./tools/ci/verify_release_cocoapods.sh
+          command: ./tools/ci/verify_release_cocoapods.sh BitdriftCapture
 
   release-cocoapods-dep-specs:
     name: Publish integration CocoaPods specs
@@ -50,8 +50,8 @@ jobs:
         run: ./tools/ci/mac_ci_setup.sh
       - name: Publish integration CocoaPods specs
         run: |
-          pod trunk push CaptureSwiftyBeaver.podspec --verbose
-          pod trunk push CaptureCocoaLumberjack.podspec --verbose
+          ./tools/ci/verify_release_cocoapods.sh CaptureSwiftyBeaver || pod trunk push CaptureSwiftyBeaver.podspec --verbose
+          ./tools/ci/verify_release_cocoapods.sh CaptureCocoaLumberjack || pod trunk push CaptureCocoaLumberjack.podspec --verbose
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
 
