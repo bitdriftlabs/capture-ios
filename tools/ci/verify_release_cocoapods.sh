@@ -11,8 +11,10 @@ set -euxo pipefail
 
 # Pod sub-section is dependent on name hash
 POD_NAME="$1"
-POD_HASH=$(printf "$POD_NAME" | md5sum | head -c 3)
-CDN_SECTION=$(ruby -e "print '$POD_HASH'.split('').join('_')")
+CDN_SECTION=$(ruby -e "
+    require 'digest'
+    hash = Digest::MD5.hexdigest('$POD_NAME')[0..2]
+    print(hash.split('').join('_'))")
 
 # Pod list subset containing BitdriftCapture
 CDN_PATH="https://cdn.cocoapods.org/all_pods_versions_$CDN_SECTION.txt"
