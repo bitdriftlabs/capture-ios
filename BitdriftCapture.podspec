@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
     s.name = 'BitdriftCapture'
     s.summary = "A dynamic observability SDK for mobile developers."
-    s.version = '0.22.0'
+    s.version = '0.22.1'
 
     s.homepage = 'https://bitdrift.io'
     s.license = {
       :type => "Licensed under PolyForm Shield. See LICENSE for terms.",
-      :file => "LICENSE.txt"
+      :file => "LICENSE"
     }
 
     s.authors = {
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
       'CoreTelephony'
     ]
 
-    s.source = { http: "https://dl.bitdrift.io/sdk/ios/capture-0.22.0/Capture.zip" }
-    s.preserve_paths = ['NOTICE.txt']
+    s.source = { http: "https://dl.bitdrift.io/sdk/ios/capture-0.22.1/Capture.zip" }
+    s.preserve_paths = ['LICENSE']
     s.vendored_frameworks = 'Capture.xcframework'
   end
