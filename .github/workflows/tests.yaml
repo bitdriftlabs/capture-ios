@@ -15,7 +15,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set up CI
         run: ./tools/ci/mac_ci_setup.sh
-      - name: Debug
-        run: xcrun simctl list runtimes && xcodebuild -version
       - name: Run Tests
         run: make test
