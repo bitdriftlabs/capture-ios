@@ -42,7 +42,7 @@ public final class MockLogging: Logging {
 
     public func startNewSession() {}
 
-    public func addField(withKey _: String, value _: Encodable & Sendable) {}
+    public func addField(withKey _: String, value _: FieldValue) {}
 
     public func removeField(withKey _: String) {}
 
