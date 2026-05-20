@@ -1,13 +1,13 @@
 name: CocoaPods
 on:
-    push:
-      branches:
-        - main
-    pull_request:
+  push:
+    branches:
+      - main
+  pull_request:
 jobs:
   verify-cocoapods:
     name: verify
-    runs-on: macos-14
+    runs-on: macos-15
     permissions:
       contents: read
     steps:
