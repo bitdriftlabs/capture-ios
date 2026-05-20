@@ -46,6 +46,10 @@ public final class MockLogging: Logging {
 
     public func removeField(withKey _: String) {}
 
+    public func getSdkStatus() -> SdkStatus {
+        fatalError("TODO: needs to be implemented")
+    }
+
     public func createTemporaryDeviceCode(completion _: @escaping (Result<String, Error>) -> Void) {}
 
     public func startSpan(
@@ -71,5 +75,5 @@ public final class MockLogging: Logging {
 
     public func setFeatureFlagExposure(withName _: String, variant _: Bool) {}
 
-    public func registerOpaqueUserID(_: String) {}
+    public func setEntityID(_: String) {}
 }
