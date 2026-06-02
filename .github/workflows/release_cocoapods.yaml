@@ -50,7 +50,52 @@ jobs:
         run: ./tools/ci/mac_ci_setup.sh
       - name: Publish integration CocoaPods specs
         run: |
-          ./tools/ci/verify_release_cocoapods.sh CaptureSwiftyBeaver || pod trunk push CaptureSwiftyBeaver.podspec --verbose
-          ./tools/ci/verify_release_cocoapods.sh CaptureCocoaLumberjack || pod trunk push CaptureCocoaLumberjack.podspec --verbose
+          push_pod() {
+            local spec="$1"
+            local name="${spec%.podspec}"
+
+            if ./tools/ci/verify_release_cocoapods.sh "$name"; then
+              echo "::notice::$name already on CDN, skipping push."
+              return 0
+            fi
+
+            local out
+            out=$(pod trunk push "$spec" --verbose 2>&1)
+            local code=$?
+            echo "$out"
+
+            if [[ $code -eq 0 ]]; then
+              echo "::notice::$name published successfully."
+              return 0
+            fi
+
+            # 409 means the version is already on trunk but CDN hasn't caught up yet.
+            # Treat as success so re-runs don't fail on an already-published version.
+            if echo "$out" | grep -q "duplicate entry"; then
+              echo "::warning::$name already on trunk but not on CDN yet (propagation lag). Treating as success."
+              return 0
+            fi
+
+            return $code
+          }
+
+          errors=0
+
+          set +e
+          push_pod CaptureSwiftyBeaver.podspec
+          if [[ $? -ne 0 ]]; then
+            errors=$((errors + 1))
+          fi
+
+          push_pod CaptureCocoaLumberjack.podspec
+          if [[ $? -ne 0 ]]; then
+            errors=$((errors + 1))
+          fi
+          set -e
+
+          if [[ $errors -gt 0 ]]; then
+            echo "::error::$errors pod(s) failed to publish."
+            exit 1
+          fi
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
