@@ -77,6 +77,6 @@ public final class MockLogging: Logging {
     public func setFeatureFlagExposure(withName _: String, variant _: Bool) {}
 
     public func setEntityID(_: String) {}
-    
+
     public func clearEntityID() {}
 }
