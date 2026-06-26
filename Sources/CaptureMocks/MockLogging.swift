@@ -10,6 +10,7 @@ public struct Log {
 
 public final class MockLogging: Logging {
     public var logExpectation: XCTestExpectation?
+    public var isTracingActive: Bool = false
     public private(set) var logs = [Log]()
 
     public init() {}
@@ -76,4 +77,6 @@ public final class MockLogging: Logging {
     public func setFeatureFlagExposure(withName _: String, variant _: Bool) {}
 
     public func setEntityID(_: String) {}
+
+    public func clearEntityID() {}
 }
