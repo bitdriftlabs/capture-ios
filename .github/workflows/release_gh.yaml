@@ -20,11 +20,29 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+      - name: Generate release notes
+        id: release-notes
+        continue-on-error: true
+        run: python3 tools/ci/generate_release_notes.py "$VERSION" release-notes.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
       - name: Create GitHub Release
         id: create-gh-release
         run: |
-          gh release create "${{ inputs.version }}" \
-            --target "$GITHUB_REF_NAME" \
-            --title "${{ inputs.version }}"
+          arguments=(
+            gh release create "$VERSION"
+            --target "$GITHUB_REF_NAME"
+            --title "$VERSION"
+          )
+
+          if [ -f release-notes.md ]; then
+            arguments+=(--notes-file release-notes.md)
+          else
+            echo "::warning title=Release notes unavailable::Publishing Capture iOS $VERSION without generated release notes."
+          fi
+
+          "${arguments[@]}"
         env:
           GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
