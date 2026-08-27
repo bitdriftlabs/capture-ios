@@ -17,3 +17,27 @@ jobs:
         run: ./tools/ci/mac_ci_setup.sh
       - name: Run Tests
         run: make test
+
+  manifest:
+    name: Manifest (Xcode ${{ matrix.xcode }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            xcode: '26.0.1'
+            artifact: Capture.zip
+          - runner: xcode-27
+            xcode: '27.0'
+            artifact: Capture.zip
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check that both manifests declare the same package
+        run: ./tools/ci/check_manifests_match.sh
+      - name: Set up CI
+        run: ./tools/ci/mac_ci_setup.sh ${{ matrix.xcode }}
+      - name: Check the resolved artifact
+        run: ./tools/ci/check_resolved_artifact.sh ${{ matrix.artifact }}
+      - name: Build against the resolved artifact
+        run: xcodebuild -scheme Capture-Package -destination 'generic/platform=iOS' build

@@ -3,15 +3,29 @@
 set -euxo pipefail
 
 readonly version="$1"
-checksum="$(curl "https://dl.bitdrift.io/sdk/ios/capture-$version/Capture.zip.sha256")"
-readonly checksum=$checksum
+readonly base_url="https://dl.bitdrift.io/sdk/ios"
 
-# Look for a string in 'Package.swift' that looks like `capture-[VERSION]/Capture.zip` and substitute
-# existig version for the new one.
-sed -e "s#\(capture-\)\(.*\)\(/Capture\.zip\)#\1$version\3#g" Package.swift \
-  | sed -e "s#\(checksum: \"\)\(.*\)\(\"\)#\1$checksum\3#g" \
-  > Package_tmp.swift
-mv Package_tmp.swift Package.swift
+function update_manifest() {
+  local -r manifest="$1"
 
-echo "+ Generated Package.swift:"
-cat Package.swift
+  local artifact
+  artifact="$(sed -n "s#.*$base_url/capture-[^/]*/\([^\"]*\.zip\)\".*#\1#p" "$manifest" | head -1)"
+
+  if [[ -z "$artifact" ]]; then
+    echo "could not find a Capture artifact URL in $manifest" >&2
+    exit 1
+  fi
+
+  local checksum
+  checksum="$(curl -fsS "$base_url/capture-$version/$artifact.sha256")"
+
+  sed -e "s#\($base_url/capture-\)[^/]*\(/\)#\1$version\2#g" \
+    -e "s#\(checksum: \"\)[^\"]*\(\"\)#\1$checksum\2#g" \
+    "$manifest" > "$manifest.tmp"
+  mv "$manifest.tmp" "$manifest"
+
+  echo "+ Updated $manifest to $artifact $version"
+}
+
+update_manifest "Package.swift"
+update_manifest "Package@swift-6.0.swift"
