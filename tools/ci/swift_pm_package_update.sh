@@ -12,7 +12,7 @@ function update_manifest() {
   local checksum
   checksum="$(curl -fsS "$base_url/capture-$version/$artifact.sha256")"
 
-  sed -e "s#\($base_url/capture-\)[^/]*\(/\)#\1$version\2#g" \
+  sed -e "s#\($base_url/capture-\)[^/]*/[^\"]*\.zip#\1$version/$artifact#g" \
     -e "s#\(checksum: \"\)[^\"]*\(\"\)#\1$checksum\2#g" \
     "$manifest" > "$manifest.tmp"
   mv "$manifest.tmp" "$manifest"
