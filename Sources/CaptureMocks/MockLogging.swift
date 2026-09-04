@@ -43,6 +43,8 @@ public final class MockLogging: Logging {
 
     public func startNewSession() {}
 
+    public func startNewSession(sessionID _: String?) {}
+
     public func addField(withKey _: String, value _: FieldValue) {}
 
     public func removeField(withKey _: String) {}
