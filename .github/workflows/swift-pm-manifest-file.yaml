@@ -21,18 +21,8 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
-      - name: Generate Package.swift
-        run: |
-          CHECKSUM=$(curl "https://dl.bitdrift.io/sdk/ios/capture-$VERSION/Capture.zip.sha256")
-
-          sed -e "s#\(capture-\)\(.*\)\(/Capture\.zip\)#\1$VERSION\3#g" Package.swift \
-          | sed -e "s#\(checksum: \"\)\(.*\)\(\"\)#\1$CHECKSUM\3#g" \
-          > Package_tmp.swift
-
-          mv Package_tmp.swift Package.swift
-
-          echo "Generate Package.swift:"
-          cat Package.swift
+      - name: Generate SwiftPM manifests
+        run: ./tools/ci/swift_pm_package_update.sh "$VERSION"
         env:
           VERSION: ${{ inputs.version }}
       - name: Check for Changes

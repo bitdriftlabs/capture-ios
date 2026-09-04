@@ -7,14 +7,7 @@ readonly base_url="https://dl.bitdrift.io/sdk/ios"
 
 function update_manifest() {
   local -r manifest="$1"
-
-  local artifact
-  artifact="$(sed -n "s#.*$base_url/capture-[^/]*/\([^\"]*\.zip\)\".*#\1#p" "$manifest" | head -1)"
-
-  if [[ -z "$artifact" ]]; then
-    echo "could not find a Capture artifact URL in $manifest" >&2
-    exit 1
-  fi
+  local -r artifact="$2"
 
   local checksum
   checksum="$(curl -fsS "$base_url/capture-$version/$artifact.sha256")"
@@ -27,5 +20,5 @@ function update_manifest() {
   echo "+ Updated $manifest to $artifact $version"
 }
 
-update_manifest "Package.swift"
-update_manifest "Package@swift-6.0.swift"
+update_manifest "Package.swift" "Capture-swift-6.4.zip"
+update_manifest "Package@swift-6.0.swift" "Capture.zip"
