@@ -31,7 +31,7 @@ jobs:
             xcode: '27.0'
             artifact: Capture.zip
             # Replace the line above with this one once Xcode 27 is GA
--           # artifact: Capture-swift-6.4.zip
+            # artifact: Capture-swift-6.4.zip
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v4
