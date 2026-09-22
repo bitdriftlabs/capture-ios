@@ -20,7 +20,5 @@ function update_manifest() {
   echo "+ Updated $manifest to $artifact $version"
 }
 
-update_manifest "Package.swift" "Capture.zip"
-# Replace the line above once Xcode 27 is GA
-# update_manifest "Package.swift" "Capture-swift-6.4.zip"
+update_manifest "Package.swift" "Capture-swift-6.4.zip"
 update_manifest "Package@swift-6.0.swift" "Capture.zip"
