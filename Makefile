@@ -1,6 +1,8 @@
+SWIFTLINT ?= swiftlint
+
 .PHONY: swiftlint
 swiftlint:
-	swiftlint --fix && swiftlint
+	$(SWIFTLINT) --fix && $(SWIFTLINT)
 
 .PHONY: swiftlint
 drstring:
