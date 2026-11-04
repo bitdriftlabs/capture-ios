@@ -18,6 +18,8 @@ jobs:
         run: ./tools/ci/linux_format_setup.sh
       - name: Run 'make format'
         run: PATH=./bin:$PATH make format
+        env:
+          SWIFTLINT: docker run --rm --volume "$$PWD:/workspace" --workdir /workspace ghcr.io/realm/swiftlint:0.59.1 swiftlint
       - name: Check & print diff
         run: git --no-pager diff && git diff --quiet
 
