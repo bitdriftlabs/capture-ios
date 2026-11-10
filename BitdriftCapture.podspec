@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
     s.homepage = 'https://bitdrift.io'
     s.license = {
-      :type => "PolyForm Strict License 1.0.0",
+      :type => "Licensed under PolyForm Shield. See LICENSE for terms.",
       :file => "LICENSE"
     }
 
